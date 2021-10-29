@@ -1,0 +1,18 @@
+# Description: Multiple GNOME terminals in one window
+# URL: https://github.com/gnome-terminator/terminator
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: python3
+
+name=terminator
+version=2.1.1
+release=1
+source=(https://github.com/gnome-terminator/terminator/archive/refs/tags/v$version.tar.gz)
+
+build() {
+	cd $name-$version
+
+	python3 setup.py build
+	python3 setup.py install --root=$PKG --optimize=1
+
+	rm -r $PKG/usr/share/locale
+}
