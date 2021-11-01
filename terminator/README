@@ -1,0 +1,12 @@
+
+README for terminator
+
+IMPORTANT
+
+  Terminator requires VTE with ICU enabled.
+  Since opt/vte3 does not list opt/icu as a dependency, be sure to
+  rebuild vte3 once icu is installed:
+
+  # prt-get depinst icu
+  # prt-get update -fr vte3
+
