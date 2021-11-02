@@ -1,0 +1,22 @@
+# Description: Perl interface to Cairo Gobject 
+# URL: https://metacpan.org/release/Cairo-GObject
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: p5-cairo p5-extutils-pkgconfig p5-extutils-depends
+
+name=p5-cairo-gobject
+version=1.004
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/Cairo-GObject-$version.tar.gz)
+
+build() {
+	cd Cairo-GObject-$version
+
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+
+	make DESTDIR=$PKG install
+	find $PKG -name .packlist -o \
+		-name perllocal.pod -o \
+		-name README -o \
+		-name '*.bs' | xargs rm
+}
