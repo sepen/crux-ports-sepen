@@ -1,0 +1,22 @@
+# Description: Perl interface to GTK3 
+# URL: https://metacpan.org/release/Gtk3
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: p5-cairo-gobject p5-glib-object-instrospection
+
+name=p5-gtk3
+version=0.038
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/Gtk3-$version.tar.gz)
+
+build() {
+	cd Gtk3-$version
+
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+
+	make DESTDIR=$PKG install
+	find $PKG -name .packlist -o \
+		-name perllocal.pod -o \
+		-name README -o \
+		-name '*.bs' | xargs rm
+}
