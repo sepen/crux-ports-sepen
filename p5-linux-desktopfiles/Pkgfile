@@ -1,6 +1,6 @@
-# Description: 
+# Description: A very fast Perl module for parsing the Linux desktop files
 # URL: https://metacpan.org/release/Linux-DesktopFiles
-# Maintainer: Matt Housh, jaeger at crux dot ninja
+# Maintainer: Jose Beneyto, sepen at crux dot nu
 # Depends on: perl
 
 name=p5-linux-desktopfiles
