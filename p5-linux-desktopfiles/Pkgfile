@@ -1,0 +1,22 @@
+# Description: 
+# URL: https://metacpan.org/release/Linux-DesktopFiles
+# Maintainer: Matt Housh, jaeger at crux dot ninja
+# Depends on: perl
+
+name=p5-linux-desktopfiles
+version=0.25
+release=1
+source=(http://search.cpan.org/CPAN/authors/id/T/TR/TRIZEN/Linux-DesktopFiles-$version.tar.gz)
+
+build() {
+	cd Linux-DesktopFiles-$version
+
+	perl Makefile.PL
+	make OPTIMIZE="$CFLAGS"
+
+	make DESTDIR=$PKG install
+	find $PKG -name .packlist -o \
+		-name perllocal.pod -o \
+		-name README -o \
+		-name '*.bs' | xargs rm
+}
