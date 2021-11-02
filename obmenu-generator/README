@@ -1,0 +1,21 @@
+
+README for obmenu-generation
+
+
+INSTALL
+
+
+  Copy default schema to your home config dir:
+
+  $ cp /usr/etc/xdg/obmenu-generator/schema.pl
+~/.config/obmenu-generator/schema.pl
+
+
+  Edit ~/.config/openbox/menu.xml and put only these contents:
+
+  <?xml version="1.0" encoding="utf-8"?>
+  <openbox_menu xmlns="http://openbox.org/"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://openbox.org/">
+      <menu id="root-menu" label="obmenu-generator" execute="/usr/bin/obmenu-generator" />
+  </openbox_menu>
