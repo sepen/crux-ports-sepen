@@ -1,0 +1,20 @@
+# Description: Simple GTK+ frontend for mpv
+# URL: https://github.com/celluloid-player/celluloid
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: mpv gtk3
+
+name=celluloid
+version=0.21
+release=1
+source=(https://github.com/celluloid-player/celluloid/archive/refs/tags/v$version.tar.gz)
+
+build() {
+  cd $name-$version
+
+  meson build --buildtype=release --prefix=/usr
+
+  ninja -C build -j ${JOBS:-1}
+  DESTDIR=$PKG ninja -C build install
+
+  rm -rf $PKG/usr/share/locale
+}
