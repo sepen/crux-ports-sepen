@@ -1,0 +1,24 @@
+# Description: A fast and easy-to-use status bar
+# URL:         https://github.com/polybar/polybar
+# Maintainer:  Jose Beneyto, sepen at crux dot nu
+# Depends on:  cmake cairo xorg-xcb-util-wm xcb-util-xrm xorg-xcb-util-cursor xkeyboard-config libnl siji-ng
+
+name=polybar
+version=3.5.7
+release=1
+source=(https://github.com/polybar/polybar/releases/download/$version/$name-$version.tar.gz)
+
+build() {
+  mkdir $name-$version/build
+  cd $name-$version/build
+
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_DOCDIR=/usr/share/$name \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DPYTHON_EXECUTABLE=/usr/bin/python3 ..
+
+  cmake --build .
+
+  cmake --build . --target install -- DESTDIR=$PKG
+  mv $PKG/usr/share/$name/config{,.example}
+}

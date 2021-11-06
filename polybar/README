@@ -1,0 +1,31 @@
+README for polybar
+
+
+INSTALL
+
+
+  Get started with the example configuration:
+
+  $ cp /usr/share/polybar/config.example $HOME/.config/polybar/config
+  $ polybar example
+
+
+  For more information, see https://github.com/polybar/polybar/wiki
+
+
+CUSTOMIZE BUILD
+
+
+  This port comes with a minimal set of polybar modules. Supported modules
+  will vary depending of your installation and features detected during the
+  build.
+
+  --  Module support:
+  -- [X]   alsa
+  -- [X]   curl
+  -- [ ]   i3
+  -- [ ]   mpd
+  -- [X]   network (libnl)
+  -- [ ]   pulseaudio
+  -- [X]   xkeyboard
+
