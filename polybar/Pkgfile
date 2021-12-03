@@ -1,7 +1,7 @@
 # Description: A fast and easy-to-use status bar
 # URL:         https://github.com/polybar/polybar
 # Maintainer:  Jose Beneyto, sepen at crux dot nu
-# Depends on:  cmake cairo xorg-xcb-util-wm xcb-util-xrm xorg-xcb-util-cursor xkeyboard-config libnl siji-ng
+# Depends on:  cmake cairo xorg-xcb-util-wm xorg-xcb-util-xrm xorg-xcb-util-cursor xkeyboard-config libnl siji-ng
 
 name=polybar
 version=3.5.7
