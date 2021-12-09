@@ -18,3 +18,10 @@ INSTALL
     xsi:schemaLocation="http://openbox.org/">
       <menu id="root-menu" label="obmenu-generator" execute="/usr/bin/obmenu-generator -i" />
   </openbox_menu>
+
+
+NOTE
+
+  If you want to include icons in the menu you will need a previously installed icon-theme
+  package as for example adwaita-icon-theme. Otherwise it will prompt an error.
+ 
