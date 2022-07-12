@@ -1,0 +1,29 @@
+# Description: Pretty printing of data structures
+# URL: https://metacpan.org/release/Data-Dump
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on:
+
+name=p5-data-dump
+version=1.25
+release=1
+source=(https://cpan.metacpan.org/authors/id/G/GA/GARU/Data-Dump-$version.tar.gz)
+
+build() {
+  cd Data-Dump-$version
+
+  perl Makefile.PL
+  make
+  make install DESTDIR=$PKG
+
+  # Remove perlcrap
+  find $PKG \
+    -name .packlist -or \
+    -name '*.bs' -or \
+    -name autosplit.ix -or \
+    -name perllocal.pod | xargs rm
+
+  # Remove empty directories
+  find $PKG -depth -empty -exec rm -rf {} \;
+
+  chown -R root:root $PKG
+}
