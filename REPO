@@ -3,6 +3,7 @@ d:siji-ng
 d:p5-linux-desktopfiles
 d:celluloid
 d:p5-gtk3
+d:obconf
 d:obmenu-generator
 d:polybar
 d:p5-data-dump
@@ -24,6 +25,11 @@ f:de8bfd758a67959a31d1b448b8c00234:celluloid/post-install
 f:4f4b737c646def88aa63c8f7661abcee:p5-gtk3/.footprint
 f:ac3cdef15edb640a88112ec1fdf77e81:p5-gtk3/Pkgfile
 f:6a3e99f6c1c2285b0ccd3d0a43c5d39e:p5-gtk3/.md5sum
+f:ffc244ba59cc021fb5b06cd3d2ed4bfc:obconf/.footprint
+f:fb2c56d8e62bfbadd6ed6a735b0e10c2:obconf/switch-to-gtk3.patch
+f:fa550ac148e0706b147bb618227287bf:obconf/Pkgfile
+f:d8e74f40af871a818773f9cd34365fe0:obconf/.md5sum
+f:6be2148229280c3ba961f7aad928bc27:obconf/stop-using-libglade.patch
 f:30b3106105bfbeb74de021c04e81cfbe:obmenu-generator/.footprint
 f:899ecc5d0ccaa8e3d218092936bc2b8a:obmenu-generator/Pkgfile
 f:8ba5a74357b9958a05127646523bdee9:obmenu-generator/.md5sum
