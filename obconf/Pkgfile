@@ -1,0 +1,25 @@
+# Description: A GTK+ based configuration tool for the Openbox windowmanager
+# URL: https://openbox.org/wiki/ObConf
+# Depends on: gtk libglade startup-notification
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: openbox gtk3 startup-notification
+
+name=obconf
+version=2.0.4
+release=1
+
+source=(http://openbox.org/dist/$name/$name-$version.tar.gz \
+        stop-using-libglade.patch switch-to-gtk3.patch)
+
+build() {
+	cd $name-$version
+
+  # Stop using libglade, and switch to GTK+ 3
+  patch -Np1 -i $SRC/stop-using-libglade.patch
+  patch -Np1 -i $SRC/switch-to-gtk3.patch
+  autoreconf -fi
+
+	./configure --prefix=/usr --disable-nls
+	
+  make DESTDIR=$PKG install
+}
