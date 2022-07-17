@@ -1,0 +1,43 @@
+# Description: Lightweight and fast web browser
+# URL: https://www.netsurf-browser.org/
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: curl gtk3 p5-html-parser libwebp librsvg-compat
+#
+# TODO: netsurf_use_video depends on: gstreamer-compat
+
+name=netsurf
+version=3.10
+release=1
+source=(https://download.netsurf-browser.org/netsurf/releases/source-full/$name-all-$version.tar.gz \
+        $name.desktop)
+
+build() {
+  # TODO: netsurf_use_video
+  #export CFLAGS="$CFLAGS -UDISABLE_GLIB_DEPRECATIONS"
+  #export CXXFLAGS="$CXXFLAGS -UDISABLE_GLIB_DEPRECATIONS"
+
+  cd $name-all-$version
+
+  make install \
+    TARGET=gtk3 \
+    LIBDIR=lib \
+    INCLUDEDIR=include \
+    DESTDIR=$PKG \
+    PREFIX=/usr \
+    NETSURF_USE_JPEG=YES \
+    NETSURF_USE_CURL=YES \
+    NETSURF_USE_OPENSSL=YES \
+    NETSURF_USE_WEBP=YES \
+    NETSURF_USE_PNG=YES \
+    NETSURF_USE_BMP=YES \
+    NETSURF_USE_GIF=YES \
+    NETSURF_USE_RSVG=YES
+
+    # TODO: netsurf_use_video
+    # it requires gstreamer-compat to be compiled against glib < 2.32
+    # https://www.freedesktop.org/software/gstreamer-sdk/data/docs/2012.5/glib/glib-Deprecated-Thread-APIs.html
+    #NETSURF_USE_VIDEO=YES
+
+  install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
+  ln -sf $name-gtk3 $PKG/usr/bin/$name
+}
