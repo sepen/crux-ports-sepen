@@ -1,0 +1,24 @@
+# Description: GTK+ frontend to various command line archivers
+# URL: https://github.com/ib/xarchiver
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: gtk3
+
+name=xarchiver
+version=0.5.4.18
+release=1
+source=(https://github.com/ib/xarchiver/archive/$version.tar.gz \
+        $name.desktop)
+
+build () {
+  cd $name-$version
+
+  ./configure --prefix=/usr \
+              --libexecdir=/usr/lib \
+              --disable-debug
+
+  make
+  make DESTDIR=$PKG install
+
+  install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
+  rm -rf $PKG/usr/share/{doc,locale}
+}
