@@ -32,6 +32,7 @@ jobs:
           rm -rf htppup-*
 
       - name: Update REPO file
+        run: |
           httpup-repgen
           cat REPO
 
