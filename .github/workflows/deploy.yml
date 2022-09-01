@@ -30,4 +30,4 @@ jobs:
         run: |
           git config user.name "${{ secrets.GIT_USER_NAME }}"
           git config user.email "${{ secrets.GIT_USER_EMAIL }}"
-          bash -c "git commit -a -m 'Update REPO file' && git push" 
+          bash -c "git commit -a -m 'Update REPO file' && git push || echo 'Nothing to commit'" 
