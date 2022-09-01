@@ -40,3 +40,8 @@ jobs:
           git add REPO
           git commit -m "Update REPO file" REPO
           git push
+
+      - name: Summary
+        if: failure()
+        run: |
+          echo "Nothing to commit"
