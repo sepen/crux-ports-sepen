@@ -6,8 +6,10 @@ on:
       - '*'
     ignore-paths:
       - 'REPO'
-      - 'README.md'
-      - 'sepen.httpup'
+      - '*.md'
+      - '*.httpup'
+      - '.httpup-repgen-ignore'
+      - '.github/workflows/*'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,4 +39,4 @@ jobs:
           git config user.email "${{ secrets.GIT_USER_EMAIL }}"
           git add REPO
           git commit -m "Update REPO file" REPO
-          bash -c "git push || exit 0"
+          git push
