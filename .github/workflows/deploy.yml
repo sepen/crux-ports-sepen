@@ -24,15 +24,24 @@ jobs:
       - uses: actions/checkout@v3
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Download and prepare httpup-repgen
         run: |
-          cd /tmp
-          wget https://crux.nu/files/httpup-0.5.0.tar.xz
-          tar xvf httpup-0.5.0.tar.xz httpup-0.5.0/httpup-repgen
-          cd -
-          sh /tmp/httpup-0.5.0/httpup-repgen
+          wget -q https://crux.nu/files/httpup-0.5.0.tar.xz
+          tar xf httpup-0.5.0.tar.xz httpup-0.5.0/httpup-repgen
+          cp httpup-0.5.0/httpup-repgen /usr/bin/httpup-repgen
+          rm -rf htppup-*
+
+      - name: Update REPO file
+          httpup-repgen
           cat REPO
-          ls -1
+
+      - name: Push to remote
+        run: |
+          git config user.name ${{ secrets.GIT_USER_NAME }}
+          git config user.email "${{ secrets.GIT_USER_EMAIL }}"
+          #git remote add gh-token "https://${{ secrets.GH_TOKEN}}@github.com/sepen/crux-ports-sepen.git"
+          #git add -A
+          #git commit -m "Update test.txt"
+          #git push
           git config -l
-          echo Add other actions to build,  
-          echo test, and deploy your project.
+
