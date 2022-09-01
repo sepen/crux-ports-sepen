@@ -28,9 +28,11 @@ jobs:
         run: |
           cd /tmp
           wget https://crux.nu/files/httpup-0.5.0.tar.xz
-          tar xf httpup-0.5.0.tar.xz httpup-0.5.0/httpup-repgen
+          tar xvf httpup-0.5.0.tar.xz httpup-0.5.0/httpup-repgen
           cd -
-          sh -x /tmp/httpup-0.5.0/httpup-repgen
-          git config -l | grep ^user
+          sh /tmp/httpup-0.5.0/httpup-repgen
+          cat REPO
+          ls -1
+          git config -l
           echo Add other actions to build,  
           echo test, and deploy your project.
