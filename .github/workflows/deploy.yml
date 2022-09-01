@@ -26,8 +26,11 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          curl --help
-          wget --help
+          cd /tmp
+          wget https://crux.nu/files/httpup-0.5.0.tar.xz
+          tar xf httpup-0.5.0.tar.xz httpup-0.5.0/httpup-repgen
+          cd -
+          sh -x /tmp/httpup-0.5.0/httpup-repgen
           git config -l | grep ^user
           echo Add other actions to build,  
           echo test, and deploy your project.
