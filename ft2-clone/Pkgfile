@@ -1,0 +1,38 @@
+# Description: Fasttracker II clone
+# URL: https://16-bits.org/ft2.php
+# Depends on: libsdl2 alsa-lib
+
+name=ft2-clone
+version=1.60
+release=1
+source=(https://github.com/8bitbubsy/ft2-clone/archive/v${version}.tar.gz \
+  $name.desktop $name.png)
+
+#icns2png -x "release/macos/ft2-clone-macos.app/Contents/Resources/ft2-clone-macos.icns"
+
+build() {
+  cd $name-$version
+
+  gcc \
+    $CFLAGS \
+    -lSDL2 -lpthread -lasound -lstdc++ -lm \
+    -DNDEBUG -DHAS_MIDI -D__LINUX_ALSA__ -DHAS_LIBFLAC \
+    src/rtmidi/*.cpp \
+    src/gfxdata/*.c \
+    src/mixer/*.c \
+    src/scopes/*.c \
+    src/modloaders/*.c \
+    src/smploaders/*.c \
+    src/libflac/*.c \
+    src/*.c \
+    -Wshadow -Winit-self -Wall \
+    -Wno-missing-field-initializers \
+    -Wno-unused-result -Wno-strict-aliasing \
+    -Wextra -Wunused -Wunreachable-code \
+    -Wswitch-default -Wno-stringop-overflow \
+    -o $name
+
+  install -D -m 0755 $name $PKG/usr/bin/$name
+  install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/ft2-clone.desktop
+  install -D -m 0644 $SRC/$name.png $PKG/usr/share/pixmaps/$name.png
+}
