@@ -1,0 +1,8 @@
+drwxr-xr-x	sepen/users	usr/
+drwxr-xr-x	sepen/users	usr/bin/
+-rwxr-xr-x	sepen/users	usr/bin/ft2-clone
+drwxr-xr-x	sepen/users	usr/share/
+drwxr-xr-x	sepen/users	usr/share/applications/
+-rw-r--r--	sepen/users	usr/share/applications/ft2-clone.desktop
+drwxr-xr-x	sepen/users	usr/share/pixmaps/
+-rw-r--r--	sepen/users	usr/share/pixmaps/ft2-clone.png
