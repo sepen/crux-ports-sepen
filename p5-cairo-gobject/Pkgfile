@@ -4,7 +4,7 @@
 # Depends on: p5-cairo p5-extutils-pkgconfig p5-extutils-depends
 
 name=p5-cairo-gobject
-version=1.004
+version=1.005
 release=1
 source=(http://search.cpan.org/CPAN/authors/id/X/XA/XAOC/Cairo-GObject-$version.tar.gz)
 
