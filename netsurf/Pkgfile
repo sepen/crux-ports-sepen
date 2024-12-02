@@ -1,15 +1,15 @@
 # Description: Lightweight and fast web browser
 # URL: https://www.netsurf-browser.org/
 # Maintainer: Jose Beneyto, sepen at crux dot nu
-# Depends on: curl gtk3 p5-html-parser libwebp librsvg-compat
-#
+# Depends on: curl gtk3 p5-html-parser libwebp
+
 # TODO: netsurf_use_video depends on: gstreamer-compat
 
 name=netsurf
-version=3.10
+version=3.11
 release=1
 source=(https://download.netsurf-browser.org/netsurf/releases/source-full/$name-all-$version.tar.gz \
-        $name.desktop)
+  $name.desktop)
 
 build() {
   # TODO: netsurf_use_video
@@ -18,7 +18,7 @@ build() {
 
   cd $name-all-$version
 
-  make install \
+  make V=1 install \
     TARGET=gtk3 \
     LIBDIR=lib \
     INCLUDEDIR=include \
@@ -31,7 +31,7 @@ build() {
     NETSURF_USE_PNG=YES \
     NETSURF_USE_BMP=YES \
     NETSURF_USE_GIF=YES \
-    NETSURF_USE_RSVG=YES
+    NETSURF_USE_RSVG=NO
 
     # TODO: netsurf_use_video
     # it requires gstreamer-compat to be compiled against glib < 2.32
