@@ -1,0 +1,18 @@
+# Description: OpenGL 2.0 and ES 2.0 benchmark
+# URL: https://github.com/glmark2/glmark2
+# Depends on: mesa
+
+name=glmark2
+version=2023.01
+release=1
+source=(https://github.com/glmark2/glmark2/archive/refs/tags/$version.tar.gz)
+
+build() {
+  meson setup build $name-$version \
+    --prefix=/usr \
+    --buildtype=plain \
+    -D flavors=drm-gl,drm-glesv2,x11-gl,x11-glesv2
+
+  meson compile -C build -j ${JOBS:-1}
+  DESTDIR=$PKG meson install -C build
+}
