@@ -1,0 +1,24 @@
+# Description: Fast and lightweight file manager.
+# URL: http://pcmanfm.sourceforge.net/
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: desktop-file-utils libfm
+# Optional: gvfs udisks xarchiver
+
+name=pcmanfm
+version=1.3.2
+release=1
+source=(http://downloads.sourceforge.net/$name/$name-$version.tar.xz)
+
+build() {
+  cd $name-$version
+
+  ./configure \
+    --prefix=/usr \
+    --sysconfdir=/etc \
+    --with-gtk=3
+
+  make
+  make DESTDIR=$PKG install
+
+  rm -r $PKG/usr/share/locale
+}
