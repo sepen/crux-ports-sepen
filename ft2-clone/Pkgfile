@@ -3,7 +3,7 @@
 # Depends on: libsdl2 alsa-lib
 
 name=ft2-clone
-version=1.60
+version=1.97
 release=1
 source=(https://github.com/8bitbubsy/ft2-clone/archive/v${version}.tar.gz \
   $name.desktop $name.png)
