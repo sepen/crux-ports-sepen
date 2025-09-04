@@ -1,6 +1,7 @@
 d:terminator
 d:p5-cairo-gobject
 d:polybar
+d:dosbox
 d:netsurf
 d:p5-linux-desktopfiles
 d:p5-gtk3
@@ -29,6 +30,9 @@ f:4694c2135211abf100852347ef114765:polybar/.md5sum
 f:b151696c8dc97abfb9e14492afb2a0a9:polybar/.footprint
 f:b7c8b99807e5f6b8da9636ea395f56ac:polybar/README
 f:ed5ceace13d4edeee959eb0ddf75d60b:polybar/Pkgfile
+f:9aa7f4ddb684aef444829b71eafa6688:dosbox/.md5sum
+f:6ac7cc406ab9046d49bf3826ff37509e:dosbox/.footprint
+f:9b07ff572a134a400729c889e1a80ef2:dosbox/Pkgfile
 f:2c4e4b5b86daa8642e8d11c2656f60b2:netsurf/.md5sum
 f:a7f01c9d968588c2b1ba3bae884ea65f:netsurf/.footprint
 f:28e0452562bb6937af825721f20ff999:netsurf/Pkgfile
