@@ -11,6 +11,13 @@ source=(https://downloads.sourceforge.net/project/mirageiv/mirage-$version.tar.b
 build() {
   rm $SRC/$name-$version/{CHANGELOG,COPYING,README,TODO,TRANSLATORS,setup.py,po/POTFILES.in}
 
+ # build additional features
+  PYTHON_INC_PATH=$(python -c "import sysconfig; print(sysconfig.get_paths()['include'])")
+  cd $SRC/$name-$version
+  gcc -fPIC -shared -I$PYTHON_INC_PATH -o imgfuncs.so imgfuncs.c
+  gcc -fPIC -shared -I$PYTHON_INC_PATH -o xmouse.so xmouse.c -lX11
+  rm $SRC/$name-$version/{imgfuncs,xmouse}.c
+
   install -d -m 0755 $PKG/usr/share
   mv $SRC/$name-$version $PKG/usr/share/$name
   chmod 0755 $PKG/usr/share/$name/$name
