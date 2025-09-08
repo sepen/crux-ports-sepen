@@ -3,12 +3,11 @@ README for polybar
 
 INSTALL
 
+  To get started with your own customization, you need to create a
+  configuration file in ~/.config/polybar/config.ini.
 
-  Get started with the example configuration:
-
-  $ cp /usr/share/polybar/config.example $HOME/.config/polybar/config
-  $ polybar example
-
+  You can copy the default config from /etc/polybar/config.ini or start from
+  scratch.
 
   For more information, see https://github.com/polybar/polybar/wiki
 
