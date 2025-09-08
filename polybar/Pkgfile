@@ -1,24 +1,38 @@
 # Description: A fast and easy-to-use status bar
 # URL:         https://github.com/polybar/polybar
 # Maintainer:  Jose Beneyto, sepen at crux dot nu
-# Depends on:  cmake cairo xorg-xcb-util-wm xorg-xcb-util-xrm xorg-xcb-util-cursor xkeyboard-config libnl siji-ng
+# Depends on:  cmake cairo freetype xorg-xcb-util-wm xorg-xcb-util-xrm xorg-xcb-util-cursor xkeyboard-config libnl siji-ng
 
 name=polybar
-version=3.5.7
+version=3.7.2
 release=1
 source=(https://github.com/polybar/polybar/releases/download/$version/$name-$version.tar.gz)
 
 build() {
   mkdir $name-$version/build
-  cd $name-$version/build
 
-  cmake -DCMAKE_INSTALL_PREFIX=/usr \
-        -DCMAKE_INSTALL_DOCDIR=/usr/share/$name \
-        -DCMAKE_BUILD_TYPE=Release \
-        -DPYTHON_EXECUTABLE=/usr/bin/python3 ..
+  # patch Polybar build flags for old GCC versions
+  GCC_VER=$(gcc -dumpversion | cut -f1 -d.)
+  if [ "$GCC_VER" -lt 9 ]; then
+    # remove from CMake cxx.cmake file
+    sed -i 's/-Wdeprecated-copy-dtor//g' $name-$version/cmake/cxx.cmake
+    # remove from CMake build variables if already set
+    export CFLAGS=$(echo "$CFLAGS" | sed 's/-Wdeprecated-copy-dtor//g')
+    export CXXFLAGS=$(echo "$CXXFLAGS" | sed 's/-Wdeprecated-copy-dtor//g')
+  fi
 
-  cmake --build .
+  cmake -S $name-$version -B build \
+    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_DOCDIR=/usr/share/$name \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DBUILD_DOC=OFF \
+    -DCMAKE_THREAD_LIBS_INIT="-lpthread" \
+    -DCMAKE_USE_PTHREADS_INIT=TRUE \
+    -DCMAKE_EXE_LINKER_FLAGS="-L/usr/lib -lfreetype"
 
-  cmake --build . --target install -- DESTDIR=$PKG
-  mv $PKG/usr/share/$name/config{,.example}
+  cmake --build build -j ${JOBS:-1}
+  DESTDIR=$PKG cmake --install build
+
+  # remove completion scripts
+  rm -r $PKG/usr/share
 }
