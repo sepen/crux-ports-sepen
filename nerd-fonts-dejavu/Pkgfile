@@ -1,0 +1,15 @@
+# Description: Nerd Fonts patched DejaVu font family with icons
+# URL: https://www.nerdfonts.com/
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: fontconfig xorg-mkfontscale
+
+name=nerd-fonts-dejavu
+version=3.2.1
+release=1
+source=(https://github.com/ryanoasis/nerd-fonts/releases/download/v$version/DejaVuSansMono.zip)
+
+build() {
+  install -d $PKG/usr/share/fonts/X11/TTF
+  install -m 0755 -d $PKG/usr/share/fonts/X11/TTF
+  install -m 0644 -t $PKG/usr/share/fonts/X11/TTF *.ttf
+}

@@ -1,0 +1,17 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/fonts/
+drwxr-xr-x	root/root	usr/share/fonts/X11/
+drwxr-xr-x	root/root	usr/share/fonts/X11/TTF/
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFont-Bold.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFont-BoldOblique.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFont-Oblique.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFont-Regular.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontMono-Bold.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontMono-BoldOblique.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontMono-Oblique.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontMono-Regular.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontPropo-Bold.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontPropo-BoldOblique.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontPropo-Oblique.ttf
+-rw-r--r--	root/root	usr/share/fonts/X11/TTF/DejaVuSansMNerdFontPropo-Regular.ttf
