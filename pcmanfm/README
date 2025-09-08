@@ -1,0 +1,11 @@
+README for pcmanfm
+
+NOTE:
+
+  If you want to set PCManFM as the default file manager
+  After installing PCManFM, create ~/.config/mimeapps.list if it doesn’t exist, and add:
+
+  [Default Applications]
+  inode/directory=pcmanfm.desktop
+
+  This ensures xdg-open opens folders with PCManFM
