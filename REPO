@@ -7,6 +7,7 @@ d:p5-linux-desktopfiles
 d:p5-gtk3
 d:ft2-clone
 d:obmenu-generator
+d:mirage
 d:siji-ng
 d:obconf
 d:pcmanfm
@@ -19,6 +20,7 @@ d:glmark2
 d:celluloid
 d:xarchiver
 d:libfm-extra
+d:nerd-fonts-dejavu
 f:c0a13e2425d3250787cc27b6b5fa8480:terminator/.md5sum
 f:85ba1afd2f515362b490a6091ee48bcf:terminator/.footprint
 f:a61c254783b187231b8c794f716de7a9:terminator/README
@@ -26,10 +28,10 @@ f:145ef119ff6fde58ab82f7791baa2cf2:terminator/Pkgfile
 f:037097eb6ae3d89b9db426a5382f9664:p5-cairo-gobject/.md5sum
 f:2a6fa08548396309142a84816f8fde75:p5-cairo-gobject/.footprint
 f:ab159b5ddf04602604d058a5829e35d9:p5-cairo-gobject/Pkgfile
-f:4694c2135211abf100852347ef114765:polybar/.md5sum
-f:b151696c8dc97abfb9e14492afb2a0a9:polybar/.footprint
-f:b7c8b99807e5f6b8da9636ea395f56ac:polybar/README
-f:ed5ceace13d4edeee959eb0ddf75d60b:polybar/Pkgfile
+f:a750c42937679f8c374597e02d2e9e24:polybar/.md5sum
+f:02585809ace82ef2df56dcc2e4cd5f81:polybar/.footprint
+f:494c33b142da8b43190db58a90d48947:polybar/README
+f:66ef54d07b753df53058bba09b880098:polybar/Pkgfile
 f:9aa7f4ddb684aef444829b71eafa6688:dosbox/.md5sum
 f:6ac7cc406ab9046d49bf3826ff37509e:dosbox/.footprint
 f:9b07ff572a134a400729c889e1a80ef2:dosbox/Pkgfile
@@ -52,6 +54,9 @@ f:8ba5a74357b9958a05127646523bdee9:obmenu-generator/.md5sum
 f:30b3106105bfbeb74de021c04e81cfbe:obmenu-generator/.footprint
 f:cd196573ae921ffc6c51ccc7b0c50d2f:obmenu-generator/README
 f:899ecc5d0ccaa8e3d218092936bc2b8a:obmenu-generator/Pkgfile
+f:d2bd3f75bc2a385be7c3700d6943a09b:mirage/.md5sum
+f:8c7f490803151d325bbb4aa1e66ec2a9:mirage/.footprint
+f:049551dfbe9b81122eb149958302c7bc:mirage/Pkgfile
 f:1de900e6fffc1422bde8ff074e95391a:siji-ng/post-install
 f:1b45536f828fb4471fabf6cf6a3462a5:siji-ng/.md5sum
 f:e5e9a84733c9123ca075611a248b8e34:siji-ng/.footprint
@@ -63,6 +68,7 @@ f:6be2148229280c3ba961f7aad928bc27:obconf/stop-using-libglade.patch
 f:fa550ac148e0706b147bb618227287bf:obconf/Pkgfile
 f:39541c0eec33bd98335db55cb854e747:pcmanfm/.md5sum
 f:6e88732c3fa18b7347973e4393da6ab1:pcmanfm/.footprint
+f:5876e1eaac6741b8c3da51762c013388:pcmanfm/README
 f:f1cdfaa8baa074f3e2c4d7045ee08774:pcmanfm/Pkgfile
 f:47e47016db8bd80a2ea4cba7e6472dd4:cpufetch/.md5sum
 f:47a7744b460c295e286e28fe97e2ca15:cpufetch/.footprint
@@ -105,3 +111,7 @@ f:3f0f4598e4355c518279010f2a168868:xarchiver/Pkgfile
 f:84564e9cf7ea7efecbf6389e5cbe5fbd:libfm-extra/.md5sum
 f:f57b5c7d5cea3b5ea84754628af0a9c0:libfm-extra/.footprint
 f:0964461dd6ba4a130d4f930f21ef7fb5:libfm-extra/Pkgfile
+f:8a30087027e320d7b680f58a5f3d7fb0:nerd-fonts-dejavu/post-install
+f:11d704d6d5f43b1ce74d7c3113b327a0:nerd-fonts-dejavu/.md5sum
+f:bf269fb1f6d7e16f1b61c4dcd9f5a628:nerd-fonts-dejavu/.footprint
+f:a53c2f4b14a9ac3f943a4b312bc20bfa:nerd-fonts-dejavu/Pkgfile
