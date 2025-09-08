@@ -1,0 +1,36 @@
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+lrwxrwxrwx	root/root	usr/bin/mirage -> /usr/share/mirage/mirage
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/applications/
+lrwxrwxrwx	root/root	usr/share/applications/mirage.desktop -> /usr/share/mirage/mirage.desktop
+drwxr-xr-x	root/root	usr/share/mirage/
+-rw-r--r--	root/root	usr/share/mirage/imgfuncs.c
+-rwxr-xr-x	root/root	usr/share/mirage/mirage
+-rw-r--r--	root/root	usr/share/mirage/mirage.desktop
+-rw-r--r--	root/root	usr/share/mirage/mirage.ico
+-rw-r--r--	root/root	usr/share/mirage/mirage.png
+-rwxr-xr-x	root/root	usr/share/mirage/mirage.py
+-rw-r--r--	root/root	usr/share/mirage/mirage.svg
+-rw-r--r--	root/root	usr/share/mirage/mirage_blank.png
+drwxr-xr-x	root/root	usr/share/mirage/po/
+-rw-r--r--	root/root	usr/share/mirage/po/cs.po
+-rw-r--r--	root/root	usr/share/mirage/po/de.po
+-rw-r--r--	root/root	usr/share/mirage/po/es.po
+-rw-r--r--	root/root	usr/share/mirage/po/fr.po
+-rw-r--r--	root/root	usr/share/mirage/po/hu.po
+-rw-r--r--	root/root	usr/share/mirage/po/it.po
+-rw-r--r--	root/root	usr/share/mirage/po/messages.po
+-rw-r--r--	root/root	usr/share/mirage/po/nl.po
+-rw-r--r--	root/root	usr/share/mirage/po/pl.po
+-rw-r--r--	root/root	usr/share/mirage/po/pt_BR.po
+-rw-r--r--	root/root	usr/share/mirage/po/ru.po
+-rw-r--r--	root/root	usr/share/mirage/po/ua.po
+-rw-r--r--	root/root	usr/share/mirage/po/zh_CN.po
+-rw-r--r--	root/root	usr/share/mirage/stock_fullscreen.png
+-rw-r--r--	root/root	usr/share/mirage/stock_leave-fullscreen.png
+-rw-r--r--	root/root	usr/share/mirage/stock_shuffle.png
+-rwxr-xr-x	root/root	usr/share/mirage/update-po
+-rw-r--r--	root/root	usr/share/mirage/xmouse.c
+drwxr-xr-x	root/root	usr/share/pixmaps/
+lrwxrwxrwx	root/root	usr/share/pixmaps/mirage.png -> /usr/share/mirage/mirage.png

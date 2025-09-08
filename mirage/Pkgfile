@@ -1,0 +1,24 @@
+# Description: A fast and simple image viewer
+# URL: https://mirageiv.sourceforge.net/
+# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Depends on: gtk2 python pygtk
+
+name=mirage
+version=0.9.5.2
+release=1
+source=(https://downloads.sourceforge.net/project/mirageiv/mirage-$version.tar.bz2)
+
+build() {
+  rm $SRC/$name-$version/{CHANGELOG,COPYING,README,TODO,TRANSLATORS,setup.py,po/POTFILES.in}
+
+  install -d -m 0755 $PKG/usr/share
+  mv $SRC/$name-$version $PKG/usr/share/$name
+  chmod 0755 $PKG/usr/share/$name/$name
+
+  install -d -m 0755 $PKG/usr/bin
+  ln -sf /usr/share/$name/$name $PKG/usr/bin/$name
+
+  install -d -m 0755 $PKG/usr/share/{applications,pixmaps}
+  ln -sf /usr/share/$name/$name.desktop $PKG/usr/share/applications/$name.desktop
+  ln -sf /usr/share/$name/$name.png $PKG/usr/share/pixmaps/$name.png
+}
