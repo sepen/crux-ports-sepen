@@ -10,7 +10,7 @@ source=(https://github.com/sepen/cpk/archive/refs/heads/main.zip)
 build() {
   cd $name-main
 
-  ./configure
+  ./configure --prefix=/usr
   make
 
   make DESTDIR=$PKG install
