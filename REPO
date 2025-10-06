@@ -85,9 +85,9 @@ f:23c31b31122b7b28715f25c83f0bbf1a:celluloid/Pkgfile
 f:8a85a857a01b91ffbe90f9c74a691bff:celluloid/.md5sum
 f:f26008c08c77c2877af0b680ce306a26:celluloid/.footprint
 f:de8bfd758a67959a31d1b448b8c00234:celluloid/post-install
-f:2be59f60c1d0d3ac209d90b5ce26e161:cpk/Pkgfile
+f:6f9f416590d6d0fce0d5290e43e2feb4:cpk/Pkgfile
 f:bdbf9cd0c711ce1000fd48691e3cf086:cpk/.md5sum
-f:170065a9583c26f662ddb6be06d638bb:cpk/.footprint
+f:67b8eb8b649909e0a49df73f39ca23b3:cpk/.footprint
 f:9b07ff572a134a400729c889e1a80ef2:dosbox/Pkgfile
 f:9aa7f4ddb684aef444829b71eafa6688:dosbox/.md5sum
 f:6ac7cc406ab9046d49bf3826ff37509e:dosbox/.footprint
