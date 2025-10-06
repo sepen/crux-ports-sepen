@@ -1,0 +1,13 @@
+drwxr-xr-x	root/root	etc/
+-rw-r--r--	root/root	etc/cpk.conf
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/local/
+drwxr-xr-x	root/root	usr/local/bin/
+-rwxr-xr-x	root/root	usr/local/bin/cpk
+drwxr-xr-x	root/root	usr/local/share/
+drwxr-xr-x	root/root	usr/local/share/man/
+drwxr-xr-x	root/root	usr/local/share/man/man1/
+-rw-r--r--	root/root	usr/local/share/man/man1/cpk.1.gz
+drwxr-xr-x	root/root	var/
+drwxr-xr-x	root/root	var/lib/
+drwxr-xr-x	root/root	var/lib/cpk/
