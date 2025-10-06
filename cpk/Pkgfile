@@ -1,0 +1,19 @@
+# Description: CRUX Package Keeper (cpk)
+# URL: https://github.com/sepen/cpk
+# Depends on: curl libarchive
+
+name=cpk
+version=0.1dev
+release=1
+source=(https://github.com/sepen/cpk/archive/refs/heads/main.zip)
+
+build() {
+  cd $name-main
+
+  ./configure
+  make
+
+  make DESTDIR=$PKG install
+
+  install -d -m 0755 $PKG/var/lib/cpk
+}
