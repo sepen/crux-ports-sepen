@@ -111,10 +111,10 @@ f:5bd91b31b6e5c33a23c2ae601c7ba6c6:siji-ng/Pkgfile
 f:1b45536f828fb4471fabf6cf6a3462a5:siji-ng/.md5sum
 f:e5e9a84733c9123ca075611a248b8e34:siji-ng/.footprint
 f:1de900e6fffc1422bde8ff074e95391a:siji-ng/post-install
-f:28e0452562bb6937af825721f20ff999:netsurf/Pkgfile
-f:2c4e4b5b86daa8642e8d11c2656f60b2:netsurf/.md5sum
-f:7469949432ea776b78129c0c65f59e68:netsurf/netsurf.desktop
-f:a7f01c9d968588c2b1ba3bae884ea65f:netsurf/.footprint
+f:9cc7db419e4d096b5e77b678b8009f3b:netsurf/Pkgfile
+f:21fc12ce3146ebe395221e7fbb4519af:netsurf/.md5sum
+f:e05295985747b1c13504a045e3d76d42:netsurf/netsurf.desktop
+f:b281d89c4d9e8016e05dd92a0a2f3a89:netsurf/.footprint
 f:66ef54d07b753df53058bba09b880098:polybar/Pkgfile
 f:a750c42937679f8c374597e02d2e9e24:polybar/.md5sum
 f:02585809ace82ef2df56dcc2e4cd5f81:polybar/.footprint
