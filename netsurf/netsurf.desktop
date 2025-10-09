@@ -1,13 +1,11 @@
 [Desktop Entry]
-Name=NetSurf Web Browser
-Comment=Browse the World Wide Web
+Name=NetSurf
+Name[en_US]=NetSurf
 GenericName=Web Browser
-Exec=netsurf %u
+GenericName[en_US]=Web Browser
+Comment=NetSurf Web Broser
+Exec=netsurf %U
 Terminal=false
-X-MultipleArgs=false
 Type=Application
-Icon=netsurf.png
+Icon=netsurf
 Categories=Network;
-MimeType=text/html;text/xml;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https
-StartupWMClass=NetSurf-bin
-StartupNotify=true

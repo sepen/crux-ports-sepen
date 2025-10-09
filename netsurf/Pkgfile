@@ -7,7 +7,7 @@
 
 name=netsurf
 version=3.11
-release=1
+release=2
 source=(https://download.netsurf-browser.org/netsurf/releases/source-full/$name-all-$version.tar.gz \
   $name.desktop)
 
@@ -18,7 +18,7 @@ build() {
 
   cd $name-all-$version
 
-  make V=1 install \
+  make install \
     TARGET=gtk3 \
     LIBDIR=lib \
     INCLUDEDIR=include \
@@ -40,4 +40,7 @@ build() {
 
   install -D -m 0644 $SRC/$name.desktop $PKG/usr/share/applications/$name.desktop
   ln -sf $name-gtk3 $PKG/usr/bin/$name
+
+  install -d -m 0644 $PKG/usr/share/pixmaps
+  ln -sf /usr/share/$name/$name.png $PKG/usr/share/pixmaps/$name.png
 }
