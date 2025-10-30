@@ -6,10 +6,12 @@
 
 name=obconf
 version=2.0.4
-release=1
+release=2
 
 source=(http://openbox.org/dist/$name/$name-$version.tar.gz \
-        stop-using-libglade.patch switch-to-gtk3.patch)
+        stop-using-libglade.patch \
+        switch-to-gtk3.patch \
+        fix-gcc15.patch)
 
 build() {
 	cd $name-$version
@@ -17,8 +19,11 @@ build() {
   # Stop using libglade, and switch to GTK+ 3
   patch -Np1 -i $SRC/stop-using-libglade.patch
   patch -Np1 -i $SRC/switch-to-gtk3.patch
-  autoreconf -fi
 
+  # Fix build errors with GCC 15
+  patch -Np1 -i $SRC/fix-gcc15.patch
+  
+  autoreconf -fi
 	./configure --prefix=/usr --disable-nls
 	
   make DESTDIR=$PKG install
