@@ -1,3 +1,4 @@
+ac45e76cd000fcbcf73992303f0a1fd0  fix-gcc15.patch
 9271c5d2dc366d61f73665a5e8bceabc  obconf-2.0.4.tar.gz
 6be2148229280c3ba961f7aad928bc27  stop-using-libglade.patch
 fb2c56d8e62bfbadd6ed6a735b0e10c2  switch-to-gtk3.patch
