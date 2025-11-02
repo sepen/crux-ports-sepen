@@ -14,6 +14,7 @@ d:libfm
 d:cpufetch
 d:glmark2
 d:pcmanfm
+d:vscode
 d:celluloid
 d:cpk
 d:dosbox
@@ -37,11 +38,12 @@ f:1830ae320f7da82b01727150d5153205:xarchiver/post-install
 f:75f5cff3d2f6d731d013cb8dc5bf1a81:p5-linux-desktopfiles/Pkgfile
 f:d66a700f535708e83789b3daad9ff56f:p5-linux-desktopfiles/.md5sum
 f:f97bcfbfe98e0aa4a5be7878a8d78a76:p5-linux-desktopfiles/.footprint
-f:fa550ac148e0706b147bb618227287bf:obconf/Pkgfile
-f:d8e74f40af871a818773f9cd34365fe0:obconf/.md5sum
+f:0d749d56a4e25f6001a4dfa84fa30927:obconf/Pkgfile
+f:5510108b7fa08847ee5c0bb79f944a41:obconf/.md5sum
 f:ffc244ba59cc021fb5b06cd3d2ed4bfc:obconf/.footprint
 f:6be2148229280c3ba961f7aad928bc27:obconf/stop-using-libglade.patch
 f:fb2c56d8e62bfbadd6ed6a735b0e10c2:obconf/switch-to-gtk3.patch
+f:ac45e76cd000fcbcf73992303f0a1fd0:obconf/fix-gcc15.patch
 f:0e6aa428e63d75ebef5ab5fe31d35e5d:libmenu-cache/Pkgfile
 f:288659178995b4f7a74284da26152094:libmenu-cache/.md5sum
 f:ab1e75c3b3ebe014f833486a8890a40e:libmenu-cache/.footprint
@@ -81,6 +83,11 @@ f:f1cdfaa8baa074f3e2c4d7045ee08774:pcmanfm/Pkgfile
 f:39541c0eec33bd98335db55cb854e747:pcmanfm/.md5sum
 f:6e88732c3fa18b7347973e4393da6ab1:pcmanfm/.footprint
 f:5876e1eaac6741b8c3da51762c013388:pcmanfm/README
+f:4e47e2bd44c2a8c53c1e155bb942fe8a:vscode/vscode.desktop
+f:0bc3dabecc97c00e78b4ac1f2bbb8e28:vscode/Pkgfile
+f:5014d1a3d6f4e1f6564c4206388589c0:vscode/.md5sum
+f:aef6d5c8592063a3a8f5289b53e8e085:vscode/.footprint
+f:04c4c453a76effa2d794fd6037fb1412:vscode/vscode.png
 f:23c31b31122b7b28715f25c83f0bbf1a:celluloid/Pkgfile
 f:8a85a857a01b91ffbe90f9c74a691bff:celluloid/.md5sum
 f:f26008c08c77c2877af0b680ce306a26:celluloid/.footprint
