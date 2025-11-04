@@ -1,15 +1,21 @@
 # Description: Library extras for file management
-# URL: http://pcmanfm.sourceforge.net/
+# URL: https://github.com/lxde/libfm/
 # Maintainer: Jose Beneyto, sepen at crux dot nu
 # Depends on: gtk3
 
 name=libfm-extra
-version=1.3.2
+version=1.4.0
 release=1
-source=(http://downloads.sourceforge.net/pcmanfm/libfm-$version.tar.xz)
+source=(https://github.com/lxde/libfm/archive/refs/tags/$version.tar.gz \
+  disable-gtk-doc.diff)
 
 build() {
   cd libfm-$version
+
+  patch -p1 -i $SRC/disable-gtk-doc.diff
+
+  autoreconf -fi
+  sed '/GTK_DOC_CHECK/d' -i configure
 
   ./configure \
     --prefix=/usr \
