@@ -1,23 +1,39 @@
 # Description: Library for file management
-# URL: http://pcmanfm.sourceforge.net/
+# URL: https://github.com/lxde/libfm/
 # Maintainer: Jose Beneyto, sepen at crux dot nu
-# Depends on: intltool libmenu-cache xorg-libxdamage
+# Depends on: intltool libmenu-cache xorg-libxdamage vala libexif
 
 name=libfm
-version=1.3.2
-release=1
-source=(http://downloads.sourceforge.net/pcmanfm/$name-$version.tar.xz)
+version=1.4.0
+release=2
+source=(https://github.com/lxde/$name/archive/refs/tags/$version.tar.gz \
+  disable-gtk-doc.diff)
 
 build() {
   cd $name-$version
 
+  patch -p1 -i $SRC/disable-gtk-doc.diff
+
+  autoreconf -fi
+  sed '/GTK_DOC_CHECK/d' -i configure
+
   ./configure \
     --prefix=/usr \
     --sysconfdir=/etc \
+    --with-gnu-ld \
     --with-gtk=3
 
   make
   make DESTDIR=$PKG install
+
+  # remove libfm-extra
+  rm \
+    $PKG/usr/include/libfm \
+    $PKG/usr/include/libfm-1.0/fm-extra.h \
+    $PKG/usr/include/libfm-1.0/fm-version.h \
+    $PKG/usr/include/libfm-1.0/fm-xml-file.h \
+    $PKG/usr/lib/libfm-extra.* \
+    $PKG/usr/lib/pkgconfig/libfm-extra.pc
 
   rm -r $PKG/usr/share/locale
 }

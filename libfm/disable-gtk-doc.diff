@@ -1,0 +1,47 @@
+diff -purN libfm-1.4.0.orig/Makefile.am libfm-1.4.0/Makefile.am
+--- libfm-1.4.0.orig/Makefile.am	2025-02-18 18:04:08.000000000 +0100
++++ libfm-1.4.0/Makefile.am	2025-11-04 23:24:11.768326272 +0100
+@@ -35,13 +35,6 @@ EXTRA_DIST += \
+ 	po/libfm.pot \
+ 	$(NULL)
+ 
+-if ENABLE_GTK_DOC
+-DIST_SUBDIRS += $(SUBDIRS_DOCS)
+-SUBDIRS += $(SUBDIRS_DOCS)
+-else
+-EXTRA_DIST += $(EXTRA_DIST_DOCS)
+-endif
+-
+ pkgconfig_DATA += \
+ 	libfm.pc \
+ 	@LIBFM_GTK_PC@ \
+Binary files libfm-1.4.0.orig/docs/reference/libfm/.Makefile.am.un~ and libfm-1.4.0/docs/reference/libfm/.Makefile.am.un~ differ
+diff -purN libfm-1.4.0.orig/docs/reference/libfm/Makefile.am libfm-1.4.0/docs/reference/libfm/Makefile.am
+--- libfm-1.4.0.orig/docs/reference/libfm/Makefile.am	2025-02-18 18:04:08.000000000 +0100
++++ libfm-1.4.0/docs/reference/libfm/Makefile.am	2025-11-04 23:25:05.974699278 +0100
+@@ -127,24 +127,16 @@ GTKDOC_LIBS= \
+ 	$(GTK_LIBS) \
+ 	$(NULL)
+ 
+-# This includes the standard gtk-doc make rules, copied by gtkdocize.
+-include $(top_srcdir)/gtk-doc.make
+ 
+ # Other files to distribute
+ # e.g. EXTRA_DIST += version.xml.in
+-EXTRA_DIST +=
++#EXTRA_DIST +=
+ 
+ # Files not to distribute
+ # for --rebuild-types in $(SCAN_OPTIONS), e.g. $(DOC_MODULE).types
+ # for --rebuild-sections in $(SCAN_OPTIONS) e.g. $(DOC_MODULE)-sections.txt
+ DISTCLEANFILES = $(DOC_MODULE).types
+ 
+-# Comment this out if you want your docs-status tested during 'make check'
+-if ENABLE_GTK_DOC
+-#TESTS_ENVIRONMENT = cd $(srcsrc) &&
+-#TESTS = $(GTKDOC_CHECK)
+-endif
+-
+ # we don't have tests here
+ test:
+ 
