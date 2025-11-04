@@ -1,0 +1,73 @@
+diff -purN menu-cache-1.1.1.orig/Makefile.am menu-cache-1.1.1/Makefile.am
+--- menu-cache-1.1.1.orig/Makefile.am	2025-02-14 11:36:41.000000000 +0100
++++ menu-cache-1.1.1/Makefile.am	2025-11-05 00:13:45.712215036 +0100
+@@ -7,7 +7,6 @@ NULL =
+ SUBDIRS_DOCS = docs
+ 
+ EXTRA_DIST_DOCS = \
+-	gtk-doc.make \
+ 	docs/Makefile.am \
+ 	docs/Makefile.in \
+ 	docs/reference/Makefile.am \
+@@ -25,14 +24,4 @@ ALL_SUBDIRS = 			\
+ SUBDIRS = $(ALL_SUBDIRS)
+ DIST_SUBDIRS = $(ALL_SUBDIRS)
+ 
+-EXTRA_DIST = 			\
+-	$(NULL)
+-
+-if ENABLE_GTK_DOC
+-DIST_SUBDIRS += $(SUBDIRS_DOCS)
+-SUBDIRS += $(SUBDIRS_DOCS)
+-else
+-EXTRA_DIST += $(EXTRA_DIST_DOCS)
+-endif
+-
+ DISTCHECK_CONFIGURE_FLAGS=--enable-gtk-doc
+diff -purN menu-cache-1.1.1.orig/configure.ac menu-cache-1.1.1/configure.ac
+--- menu-cache-1.1.1.orig/configure.ac	2025-02-14 11:36:41.000000000 +0100
++++ menu-cache-1.1.1/configure.ac	2025-11-05 00:13:45.712215036 +0100
+@@ -57,13 +57,6 @@ else
+ fi
+ AC_SUBST(DEBUG_CFLAGS)
+ 
+-dnl check for gtk-doc
+-m4_ifdef([GTK_DOC_CHECK], [
+-GTK_DOC_CHECK([1.14],[--flavour no-tmpl])
+-],[
+-AM_CONDITIONAL([ENABLE_GTK_DOC], false)
+-])
+-
+ dnl Make version subfields for MENU_CACHE_CHECK_VERSION macro
+ ac_version_subst_str=`echo $VERSION | awk -F '.' '/.*/ { printf "MC_VERSION_MAJOR=%d MC_VERSION_MINOR=%d MC_VERSION_MICRO=%d", $1, $2, $3 }'`
+ eval ${ac_version_subst_str}
+diff -purN menu-cache-1.1.1.orig/docs/reference/libmenu-cache/Makefile.am menu-cache-1.1.1/docs/reference/libmenu-cache/Makefile.am
+--- menu-cache-1.1.1.orig/docs/reference/libmenu-cache/Makefile.am	2025-02-14 11:36:41.000000000 +0100
++++ menu-cache-1.1.1/docs/reference/libmenu-cache/Makefile.am	2025-11-05 00:14:18.148705979 +0100
+@@ -81,12 +81,6 @@ expand_content_files=
+ GTKDOC_CFLAGS=
+ GTKDOC_LIBS=$(top_builddir)/libmenu-cache/libmenu-cache.la
+ 
+-# This includes the standard gtk-doc make rules, copied by gtkdocize.
+-include $(top_srcdir)/gtk-doc.make
+-
+-# Other files to distribute
+-# e.g. EXTRA_DIST += version.xml.in
+-EXTRA_DIST +=
+ 
+ # Files not to distribute
+ # for --rebuild-types in $(SCAN_OPTIONS), e.g. $(DOC_MODULE).types
+@@ -96,13 +90,4 @@ DISTCLEANFILES = $(DOC_MODULE).types $(D
+ # Fix parallel build - we need this file built before continuing
+ $(DOC_MAIN_SGML_FILE): sgml-build.stamp
+ 
+-# Comment this out if you want 'make check' to test you doc status
+-# and run some sanity checks
+-if ENABLE_GTK_DOC
+-TESTS_ENVIRONMENT = cd $(srcdir) && \
+-  DOC_MODULE=$(DOC_MODULE) DOC_MAIN_SGML_FILE=$(DOC_MAIN_SGML_FILE) \
+-  SRCDIR=$(abs_srcdir) BUILDDIR=$(abs_builddir)
+-#TESTS = $(GTKDOC_CHECK)
+-endif
+-
+ -include $(top_srcdir)/git.mk

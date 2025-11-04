@@ -1,19 +1,22 @@
 # Description: Caching mechanism for freedesktop.org compliant menus
-# URL: http://lxde.org/
+# URL: https://github.com/lxde/menu-cache
 # Maintainer: Jose Beneyto, sepen at crux dot nu
 # Depends on: libfm-extra
 
 name=libmenu-cache
-version=1.1.0
+version=1.1.1
 release=1
-source=(https://downloads.sourceforge.net/lxde/menu-cache-$version.tar.xz \
-  menu-cache-1.1.0-consolidated_fixes-1.patch)
+#menu-cache-1.1.0-consolidated_fixes-1.patch)
+source=(https://github.com/lxde/menu-cache/archive/refs/tags/1.1.1.tar.gz \
+  disable-gtk-doc.diff)
 
 build() {
   cd menu-cache-$version
 
-  patch -Np1 -i $SRC/menu-cache-1.1.0-consolidated_fixes-1.patch
- 
+  patch -p1 -i $SRC/disable-gtk-doc.diff
+
+  autoreconf -fi
+
   ./configure \
     --prefix=/usr \
     --libexecdir=/usr/lib 
