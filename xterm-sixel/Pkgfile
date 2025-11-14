@@ -1,0 +1,28 @@
+# Description: Termulator emulator for X Windows
+# URL: https://invisible-island.net/xterm/xterm.html
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: xorg-font-alias xorg-font-misc-misc xorg-libxaw xorg-libxpm xorg-libxft
+
+name=xterm
+version=403
+release=1
+source=(https://invisible-mirror.net/archives/$name/$name-$version.tgz)
+
+build() {
+    cd $name-$version
+
+    ./configure \
+        --prefix=/usr \
+        --with-app-defaults=/usr/share/X11/app-defaults/ \
+        --disable-nls \
+	--enable-88-color \
+        --enable-256-color \
+        --enable-wide-chars \
+	--enable-sixel
+
+    make
+    make install DESTDIR=$PKG
+
+    install -d $PKG/usr/share/applications
+    install -m 0644 xterm.desktop uxterm.desktop $PKG/usr/share/applications
+}
