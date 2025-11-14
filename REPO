@@ -1,6 +1,7 @@
 d:obmenu-generator
 d:libfm-extra
 d:xarchiver
+d:xterm-sixel
 d:p5-linux-desktopfiles
 d:obconf
 d:libmenu-cache
@@ -36,6 +37,9 @@ f:be1e7fb60c4a78c7ae4fa346a70fc948:xarchiver/.md5sum
 f:77b364aea68201170f23a8f41602d2ac:xarchiver/.footprint
 f:af47da623a25ab658a268c4d6df72df0:xarchiver/xarchiver.desktop
 f:1830ae320f7da82b01727150d5153205:xarchiver/post-install
+f:8d5e590fa813fb37f920b6cd650c5876:xterm-sixel/Pkgfile
+f:7738075cdeccdd7340eccdf38b4b5f85:xterm-sixel/.md5sum
+f:c3909f54ad1d4b158f90b823f1429145:xterm-sixel/.footprint
 f:75f5cff3d2f6d731d013cb8dc5bf1a81:p5-linux-desktopfiles/Pkgfile
 f:d66a700f535708e83789b3daad9ff56f:p5-linux-desktopfiles/.md5sum
 f:f97bcfbfe98e0aa4a5be7878a8d78a76:p5-linux-desktopfiles/.footprint
