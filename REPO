@@ -24,6 +24,7 @@ d:cpufrequtils
 d:siji-ng
 d:netsurf
 d:polybar
+d:scrot
 f:899ecc5d0ccaa8e3d218092936bc2b8a:obmenu-generator/Pkgfile
 f:8ba5a74357b9958a05127646523bdee9:obmenu-generator/.md5sum
 f:30b3106105bfbeb74de021c04e81cfbe:obmenu-generator/.footprint
@@ -121,8 +122,8 @@ f:5dd9add84e63b213295e2e2a30fd3667:cpufrequtils/0003-cpufrequtils-aperf-Fix-MSR-
 f:4ccbd46b0b1563067d0c31fe510ff89d:cpufrequtils/0002-cpufrequtils-Remove-proc-compile-option-and-interfac.patch
 f:139b340b964e2c942dbe426b061c6bc8:cpufrequtils/0005-cpufrequtils-sysfs-increase-MAX_LINE_LEN.patch
 f:2242f015ca6b8478d6c1a3bfbca5ea48:cpufrequtils/0006-aperf-fix-compilation-on-x86-32-with-fPIC.patch
-f:5bd91b31b6e5c33a23c2ae601c7ba6c6:siji-ng/Pkgfile
-f:1b45536f828fb4471fabf6cf6a3462a5:siji-ng/.md5sum
+f:023a3fe8420b8b3bd521e7abf4e87aad:siji-ng/Pkgfile
+f:b857138173afb65428fb6130b6a76f89:siji-ng/.md5sum
 f:e5e9a84733c9123ca075611a248b8e34:siji-ng/.footprint
 f:1de900e6fffc1422bde8ff074e95391a:siji-ng/post-install
 f:9cc7db419e4d096b5e77b678b8009f3b:netsurf/Pkgfile
@@ -133,3 +134,6 @@ f:66ef54d07b753df53058bba09b880098:polybar/Pkgfile
 f:a750c42937679f8c374597e02d2e9e24:polybar/.md5sum
 f:02585809ace82ef2df56dcc2e4cd5f81:polybar/.footprint
 f:494c33b142da8b43190db58a90d48947:polybar/README
+f:81a26d096b9a1ec1cae3f192ad346773:scrot/Pkgfile
+f:12ebb3cdf4a6449e15dbeefef5a331b7:scrot/.md5sum
+f:72a5afdc0146af02c6d5776396519dfc:scrot/.footprint
