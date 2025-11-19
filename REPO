@@ -1,4 +1,5 @@
 d:obmenu-generator
+d:linux-aspire-one
 d:libfm-extra
 d:xarchiver
 d:yt-dlp
@@ -30,6 +31,10 @@ f:899ecc5d0ccaa8e3d218092936bc2b8a:obmenu-generator/Pkgfile
 f:8ba5a74357b9958a05127646523bdee9:obmenu-generator/.md5sum
 f:30b3106105bfbeb74de021c04e81cfbe:obmenu-generator/.footprint
 f:cd196573ae921ffc6c51ccc7b0c50d2f:obmenu-generator/README
+f:0a1cf59faade2d773123522c0101ea9c:linux-aspire-one/Pkgfile
+f:98785727941c293626a9c0ef4a65111a:linux-aspire-one/.md5sum
+f:8fcd44c1426a51572dd3b04ac87ca12f:linux-aspire-one/config-6.12.23
+f:ea9d8d3ca85a5a590a2462a11ddfc2be:linux-aspire-one/.footprint
 f:44c44b29f6434a412dfb89c3d2fa619e:libfm-extra/Pkgfile
 f:233aa22c7580c9190dd3b0a4592ac888:libfm-extra/.md5sum
 f:56ceb4b652d0241d8159f891da5dc9e5:libfm-extra/.footprint
