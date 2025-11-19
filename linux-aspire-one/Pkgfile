@@ -1,0 +1,29 @@
+# Description: Linux kernel for Acer Aspire ONE
+# URL: https://kernel.org
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on:
+
+name=linux-aspire-one
+version=6.12.23
+release=1
+source=(https://www.kernel.org/pub/linux/kernel/v6.x/linux-$version.tar.xz \
+	config-$version)
+
+build() {
+	cd linux-$version
+
+	make mrproper
+	cp $SRC/config-$version .config
+	make -j${JOBS:-1}
+
+	install -d $PKG/lib/modules
+	make INSTALL_MOD_PATH=$PKG modules_install
+	rm $PKG/lib/modules/$version-aspire-one/build
+
+	install -d $PKG/boot
+	cp arch/x86/boot/bzImage $PKG/boot/vmlinuz-$version-aspire-one
+	cp System.map $PKG/boot/System.map-$version-aspire-one
+	cp .config $PKG/boot/config-$version-aspire-one
+
+
+}
