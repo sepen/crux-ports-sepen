@@ -15,16 +15,106 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE
       - uses: actions/checkout@v3
 
-      - name: Download and prepare httpup-repgen
+      # Prepare git log message to avoid extra blank lines
+      - name: Set env message
         run: |
-          cd /tmp
-          wget -q https://crux.nu/files/httpup-0.5.0.tar.xz
-          tar xf httpup-0.5.0.tar.xz httpup-0.5.0/httpup-repgen
+          GITREPO=`git remote show origin -n | grep h.URL | sed 's/Fetch URL: https:\/\/github.com\/crux-arm\/crux-ports-//g'`
+          GITMSG=`git log -1 --pretty=format:"%s"`
+          GITBRANCH=`git branch | grep '*' | sed 's/* //'`
+          echo "MESSAGE=$(echo "[$GITREPO/$GITBRANCH  ]: $GITMSG")" >> $GITHUB_ENV
 
       - name: Update REPO file
         run: |
-          /tmp/httpup-0.5.0/httpup-repgen
-          cat REPO
+          cat << 'EOF' > /tmp/httpup-repgen
+          #!/bin/sh
+          # httpup-repgen - One way sync from an http server to a local directory
+          #
+          # Copyright 2003-2005 (c) Johannes Winkelmann, # jw@tks6.net
+          #
+          # - Filtering code adapted from Per Liden's pkgmk
+          # - optimized and made portable (sh-compliant) by Han Boetes
+
+
+          # The repo file is placed on the server. httpup downloads it,
+          # makes the update and afterwards moves it to the REPOCURRENTFILE
+          # which keeps track of the files which have been checked out. The
+          # REPOCURRENTFILE contains only file names
+          REPOFILE=REPO
+          REPOCURRENTFILE=REPO.CURRENT
+
+          VERSION=0.8
+
+          info()
+          {
+              echo $*
+          }
+
+          debug()
+          {
+              return # echo $*
+          }
+
+          printUsage()
+          {
+              cat << EOF2
+          httpup-repgen $VERSION
+            Copyright (c) 2003 Johannes Winkelmann
+
+          Usage:
+            httpup-repgen [directory]
+          EOF2
+              exit -1
+          }
+
+          generateRepoFile()
+          {
+              dir=${1:-.}
+              if [ ! -d $dir ]; then
+                  echo "Can't generate repository for '$dir': No such directory"
+                  exit -2
+              fi
+              echo "Generating repository for directory '$dir'"
+
+              OLDPWD=$PWD
+              cd $dir
+              rm -f $REPOFILE || exit -3
+
+              IGNORE_FILE=.httpup-repgen-ignore
+              if [ -r $HOME/$IGNORE_FILE ]; then
+                  FILTER="grep -E -v -f $HOME/$IGNORE_FILE"
+              else
+                  FILTER="cat"
+              fi
+              if [ -r $IGNORE_FILE ]; then
+                  FILTER_LOCAL="grep -E -v -f $IGNORE_FILE"
+              else
+                  FILTER_LOCAL="cat"
+              fi
+              FILTER_OWN="grep -E -v ($REPOFILE|$REPOCURRENTFILE|$IGNORE_FILE)"
+
+              find . -type d ! -name . -printf "%P\n" | $FILTER | $FILTER_LOCAL | $FILTER_OWN | \
+                  awk '{print "d:"$1}' > $REPOFILE
+              files="$(find . -type f -printf "%P\n" | $FILTER | $FILTER_LOCAL | $FILTER_OWN)"
+              if [ -n "$files" ]; then
+                  echo $files | xargs md5sum | awk '{print "f:"$1":"$2}' >> $REPOFILE
+              fi
+
+              cd $OLDPWD
+          }
+
+          case $1 in
+              -*)
+              printUsage
+              ;;
+              *)
+              generateRepoFile $1
+              ;;
+          esac
+          EOF
+
+          chmod +x /tmp/httpup-repgen
+          /tmp/httpup-repgen
+          git add REPO
 
       - name: Push to remote
         run: |
