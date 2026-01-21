@@ -3,7 +3,7 @@
 # Depends on: curl libarchive
 
 name=cpk
-version=0.1dev
+version=0.2
 release=1
 source=(https://github.com/sepen/cpk/archive/refs/heads/main.zip)
 
