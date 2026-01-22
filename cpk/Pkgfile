@@ -4,7 +4,7 @@
 
 name=cpk
 version=0.2
-release=1
+release=2
 source=(https://github.com/sepen/cpk/archive/refs/heads/main.zip)
 
 build() {
