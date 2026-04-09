@@ -1,0 +1,33 @@
+# Description: A small, fast graphical web browser built on FLTK
+# URL: https://dillo-browser.org
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: fltk hicolor-icon-theme libjpeg-turbo libpng libwebp zlib
+
+name=dillo
+version=3.2.0
+release=1
+
+source=(https://dillo-browser.org/release/3.2.0/dillo-3.2.0.tar.bz2
+	dillorc)
+
+build() {
+    cd $name-$version
+
+    autoreconf -fi
+    ./configure \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+        --enable-cookies \
+	--enable-png \
+	--enable-webp \
+	--enable-jpeg \
+	--enable-gif \
+	--enable-svg \
+        --enable-tls \
+        --enable-ipv6
+
+    make
+    make DESTDIR=$PKG install
+
+    install -m 0644 $SRC/dillorc $PKG/etc/$name/dillorc
+}

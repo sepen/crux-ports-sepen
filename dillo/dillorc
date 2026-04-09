@@ -1,0 +1,465 @@
+# dillorc
+# Sample dillo initialization file.
+#
+# Lines that start with a '#' are comments.
+# "#option=..." shows the built-in default.
+# "# option=..." is an additional example.
+# "option=..." overrides the built-in value.
+
+#-------------------------------------------------------------------------
+#                             FIRST SECTION                             :)
+#-------------------------------------------------------------------------
+
+# Set the desired initial browser size
+# geometry=650x545+0+20
+#geometry=780x580
+
+# Change this (and the following option) if you want to have text-only browsing
+# from the start. (While browsing, this can be changed from the tools/settings
+# menu.)
+#load_images=YES
+
+# A space separated list of image formats that will be ignored (not viewed).
+# An option to download the image will be offered instead.
+# Available formats: gif, png, webp, jpeg and svg.
+# ignore_image_formats="webp svg"
+#ignore_image_formats=""
+
+# Change this if you want background images to be loaded initially.
+# (While browsing, this can be changed from the tools/settings menu.)
+#load_background_images=NO
+
+# Change this if you want to disable loading of CSS stylesheets initially.
+# (While browsing, this can be changed from the tools/settings menu.)
+#load_stylesheets=YES
+
+# Change this if you want to disable parsing of embedded CSS initially.
+# (While browsing, this can be changed from the tools/settings menu.)
+#parse_embedded_css=YES
+
+# Change the buffering scheme for drawing
+# 0 no double buffering - useful for debugging
+# 1 light buffering using a single back buffer for all windows
+# 2 full fltk-based double buffering for all windows
+#buffered_drawing=1
+
+# Set your default directory for download/save operations
+#save_dir=/tmp
+
+# Set the increment in pixels that the page is moved up/down with each input
+# from the mouse wheel, keyboard arrow keys, or scrollbar arrow buttons.
+#scroll_step=100
+
+# Controls the overlap in pixels when scrolling to the next or previous page.
+# It is used to repeat the last line(s) to avoid losing the reading flow. It
+# controls the overlap in both the vertical and horizontal directions.
+#scroll_page_overlap=50
+
+# Place the vertical scrollbar on the left side (default right).
+#scrollbar_on_left=NO
+
+# Enable the page mode for the vertical scrollbar. When this mode is enabled,
+# clicking anywhere on the vertical scrollbar with the left button scrolls one
+# page down. With the right button, one page up. Click with the middle button to
+# jump to a given position.
+#scrollbar_page_mode=NO
+
+# Define custom actions for the link menu. The format is <label>:<cmd>. The
+# command will be executed in the system shell using the system() call. You can
+# implement your own handling logic in a script or program. The following
+# environment variables are set:
+#   $url:    URL being opened
+#   $origin: URL of the current document
+# Examples:
+# link_action="Debug variables:echo url=$url origin=$origin"
+link_action="Open in MPV:mpv $url"
+link_action="Open in Firefox:firefox $url"
+
+#-------------------------------------------------------------------------
+#                           RENDERING SECTION
+#-------------------------------------------------------------------------
+
+# Default fonts:
+#
+# If FLTK has been configured with Xft enabled (the default), you can use
+# scalable fonts such as DejaVu or Liberation (try running
+# "fc-list : family | cut -d ',' -f 2 | sort").
+#font_serif="DejaVu Serif"
+#font_sans_serif="DejaVu Sans"
+#font_cursive="DejaVu Sans"
+#font_fantasy="DejaVu Sans"
+#font_monospace="DejaVu Sans Mono"
+#
+# Otherwise, use bitmapped fonts like the following (for a list, try running
+# "xlsfonts -fn *-iso10646-1 | grep -v -e -0-0 | cut -d - -f 3 | sort | uniq").
+# font_serif="times"
+# font_sans_serif="helvetica"
+# font_cursive="helvetica"
+# font_fantasy="helvetica"
+# font_monospace="courier"
+
+# All font sizes are scaled by this value
+# font_factor=1.5
+#font_factor=1.0
+
+# Maximum font size in pixels
+#font_max_size=100
+
+# Minimum font size in pixels
+#font_min_size=6
+
+# Show tooltip popups for HTML title attributes
+#show_tooltip=YES
+
+# Set this to YES to limit the word wrap width to the viewport width
+#limit_text_width=NO
+
+# If this is set to YES, all CSS size specifications are adjusted so that
+# all contents can be displayed. (Except for tables, see below.)
+#adjust_min_width=YES
+
+# If this is set to YES, all CSS size specifications for tables are
+# adjusted so that all contents can be displayed. This is seperated
+# from "adjust_min_width" so that it is able to mimic Firefox, which
+# differentiates between tables and, say, textblocks (in some cases).
+#adjust_table_min_width=YES
+
+# Sets the initial zoom factor, which scales the size of all HTML elements.
+# zoom_factor=1.5
+#zoom_factor=1.0
+
+#-------------------------------------------------------------------------
+#                               PENALTIES
+#-------------------------------------------------------------------------
+
+# Penalties are used to control good and bad break points. The bigger
+# the penalty for a given break point, the less likely the line is
+# broken here. "inf" means that breaking is prohibited, "-inf" means
+# that a line *must* be broken here. (The latter should not be used
+# here, however.) Normal spaces get a penalty of 0. The exact
+# definition can be found in doc/dw-line-breaking.doc.
+
+# Penalties for hyphenation breaks; this covers automatic hyphenation,
+# soft hyphens, and unconditional hyphens. Since hyphenation should
+# rather be avoided, the default values are larger than 0.
+
+# This is used for hyphenation points, when there is no hyphen or dash
+# before:
+#penalty_hyphen = 1
+
+# This is used for hyphenation points, when the line before ends
+# already with a hyphen or a dash. Consequent lines ending with
+# hyphens or dashes should be avoided, so this value is bigger than
+# "penalty_hyphen":
+#penalty_hyphen_2 = 8
+
+# The same for a break right of an em-dash, when there are no spaces
+# surrounding it (as in English). The default values are the same as
+# for hyphens:
+#penalty_em_dash_right = 1
+#penalty_em_dash_right_2 = 8
+
+# Penalty for a break *left* of an em-dash. Since a line ending with
+# an em-dash (and so breaking right of the em-dash) looks better than
+# a line beginning with an em-dash (breaking left of an em-dash), the
+# default value is bigger than "penalty_em_dash_right":
+#penalty_em_dash_left = 8
+
+# Notice that there is no "penalty_em_dash_left_2", since breaking
+# left of an em-dash makes the line *begin*, not *end* with a dash.
+
+# This factor is multiplied with the line height to get the
+# stretchability of a non-justified line. The larger this factor (and
+# thus, the stretchability), the less likely the words are hyphenated;
+# so you can use this value to control hyphenation of non-justified
+# text.
+#stretchability_factor=1
+
+
+#-------------------------------------------------------------------------
+#                            NETWORK SECTION
+#-------------------------------------------------------------------------
+
+# Set the start page.
+# start_page="about:blank"
+# start_page="https://dillo-browser.github.io/"
+# start_page="file:/home/jcid/custom_page.html"
+#start_page="about:splash"
+
+# Set the home location
+# home="file:/home/jcid/HomePage/Home.html"
+#home="https://dillo-browser.github.io/"
+
+# Set the new tab page.
+# new_tab_page="dpi:/bm/"
+# new_tab_page="https://example.com/"
+#new_tab_page="about:blank"
+
+# Set the URLs used by the web search dialog.
+# "%s" is replaced with the search keywords separated by '+'.
+# Format: search_url="[prefix ][<label> ]<url>"
+# You can enable multiple search_url strings at once and select from among
+# them at runtime, with the first being the default.
+# (the prefix serves to search from the Location Bar. e.g. "dd dillo image")
+search_url="FrogFind http://frogfind.com/?q=%s"
+search_url="DuckDuckGo https://duckduckgo.com/lite/?kp=-1&kd=-1&q=%s"
+
+# If set, dillo will ask web servers to send pages in this language.
+# This setting does NOT change dillo's user interface.
+# Format explained: www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4
+# Language-REGION values: www.iana.org/assignments/language-subtag-registry
+# (by default, no Accept-Language header is sent)
+# http_language="de"
+# http_language="pt-BR"
+# http_language="en-US,en;q=0.5"
+
+# Maximum number of simultaneous TCP connections to a single server or proxy.
+# http_max_conns=6
+
+# If enabled, Dillo will reuse HTTP connections to a server or proxy when
+# possible rather than making a new connection for every request for a new
+# page/image/stylesheet.
+#http_persistent_conns=YES
+
+# This mechanism allows servers to specify that they are only to be contacted
+# through HTTPS and not HTTP.
+#
+# Overall, this is a valuable security measure against TLS stripping
+# attacks, etc., but in principle a site could contrive to use this as a
+# tracking mechanism. The term is "HSTS super cookie", although note that these
+# HSTS directives are not saved between browser sessions.
+#http_strict_transport_security=YES
+
+# If enabled, Dillo will force all HTTP connections to be upgraded to
+# a more secure HTTPS connection. This will prevent sites from loading
+# if they only support HTTP.
+#http_force_https=NO
+
+# Set the proxy information for http/https.
+# Note that the http_proxy environment variable overrides this setting.
+# WARNING: FTP and downloads plugins use wget. To use a proxy with them,
+#          you will need to configure wget accordingly. See
+#          http://www.gnu.org/software/wget/manual/html_node/Proxies.html
+# http_proxy="http://localhost:8080/"
+#(by default, no proxy is used)
+
+# If you need to provide a  user/password pair for the proxy,
+# set the proxy user name here and Dillo will ask for the password later.
+# http_proxyuser="joe"
+#(by default, no proxy is used)
+
+# Set the domains to access without proxy
+# no_proxy = ".hola.com .mynet.cl .hi.de"
+#no_proxy="localhost 127.0.0.1"
+
+# Set the HTTP Referer (sic) header.
+# Note that there is no option to reveal the page that you came from because it
+# would endanger your privacy. 'host' and 'path' allow you to pretend that the
+# link you followed was on the same site that you're going to.
+# none  : Don't send any Referer header at all.
+# host  : Send the requested URI's hostname.
+# path  : Send the requested URI's host and path.
+#http_referer=host
+
+# Set the HTTP User-Agent header.
+# This can be useful for privacy and for working around servers who think
+# Dillo is less capable than it really is. However, if you pretend to use a
+# different browser, servers may send you pages that work with the features
+# and bugs of that other browser -- or even disallow access in cases like
+# wget or googlebot. Remember this before submitting bug reports.
+#
+# See http://zytrax.com/tech/web/browser_ids.htm for a compilation of strings.
+#
+# http_user_agent="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:28.0) Gecko/20100101 Firefox/28.0"
+# http_user_agent="Wget/1.13.4 (linux-gnu)"
+#The default is "Dillo/"+current_version_number
+
+#-------------------------------------------------------------------------
+#                            COLORS SECTION
+#-------------------------------------------------------------------------
+
+# Set the page background color
+# bg_color=gray
+# bg_color=0xd6d6c0
+#bg_color=0xdcd1ba
+
+# If your eyes suffer with white backgrounds, change this.
+#allow_white_bg=YES
+
+# If allow_white_bg is set to NO, white backgrounds are replaced by
+# this color.
+#white_bg_replacement=0xe0e0a3
+
+# When set to YES, the page author's visited link color may be overridden
+# to allow better contrast with text/links/background
+#contrast_visited_color=YES
+
+
+#-------------------------------------------------------------------------
+#                        USER INTERFACE SECTION
+#-------------------------------------------------------------------------
+
+# UI theme
+# "none"     - is the default FLTK appearance, which "resembles old
+#              Windows...and old GTK/KDE".
+# "plastic"  - is inspired by the Aqua user interface on Mac OS X".
+# "gtk+" "   - is inspired by the Red Hat Bluecurve theme".
+# "gleam"    - is "a sort of Clearlooks Glossy scheme".
+#theme=none
+theme=gtk+
+#theme=plastic
+#theme=gleam
+
+# UI colors
+# Note that FLTK may sometimes override colors, generally for contrast and
+# readability.
+#
+# ui_fg_color, ui_main_bg_color, ui_text_bg_color, and ui_selection_color
+# map to concepts in the underlying FLTK toolkit which are described as:
+# "the default foreground color...used for labels and text", "default
+# background color", "the default background color for text, list, and
+# valuator widgets", and "the default selection/highlight color". They
+# sometimes have other uses in the more complex FLTK widgets.
+#
+# ui_button_highlight_color is the background used when the mouse cursor is
+# over a button. By default, this is a lightened version of the main
+# background color.
+#
+# ui_tab_active_fg_color and ui_tab_active_bg_color are used for the current
+# tab. By default, they are the main foreground color and the text background
+# color, respectively.
+#
+# ui_tab_fg_color and ui_tab_bg_color are used for the other tabs. By default,
+# they are the main foreground color and the main background color,
+# respectively.
+#
+# ui_tab_height controls the height of the tabs (default 20).
+#
+# Note to packagers: leaving these variables for the system to guess
+# gives different results in different environments, so we played it safe
+# by defining the traditional colors.  Please choose the color theme that
+# better fits your distro.
+
+#
+# Gray theme (traditional)
+#
+ui_fg_color=black
+ui_main_bg_color=#c6c6c6
+ui_text_bg_color=#bfdabf
+ui_selection_color=#191970
+ui_button_highlight_color=#a9a9a9
+ui_tab_active_bg_color=#87aca7
+ui_tab_active_fg_color=black
+ui_tab_bg_color=#b7beb7
+
+#
+# Earthly theme:
+#
+#ui_fg_color=#100404
+#ui_main_bg_color=#c2a47b
+#ui_text_bg_color=#cdc9a5
+#ui_selection_color=#763024
+#ui_tab_active_bg_color=#af4b3f
+#ui_tab_active_fg_color=white
+#ui_tab_bg_color=#d2b48c
+
+#
+# Greenish theme:
+#
+#ui_fg_color=#100404
+#ui_main_bg_color=#c8d394
+#ui_text_bg_color=#bdd8b6
+#ui_selection_color=#7c5f42
+#ui_button_highlight_color=#adad70
+#ui_tab_active_bg_color=#b5b679
+#ui_tab_active_fg_color=#b60907
+#ui_tab_bg_color=#cac682
+
+
+# Size of dillo panel
+# tiny   : buttons, location, and progress boxes in one row
+# small  : location in one row, buttons + progress boxes in another
+# medium : adds text labels to buttons and boxes
+# panel_size=tiny
+# panel_size=small
+#panel_size=medium
+
+#small_icons=NO
+
+# Here you can choose to hide some widgets of the dillo panel...
+#show_back=YES
+#show_forw=YES
+#show_home=YES
+#show_reload=YES
+#show_save=YES
+#show_stop=YES
+#show_bookmarks=YES
+#show_tools=YES
+#show_filemenu=YES
+#show_clear_url=YES
+#show_url=YES
+#show_search=YES
+#show_help=YES
+#show_progress_box=YES
+
+# Show tooltip popups for the UI
+#show_ui_tooltip=YES
+
+# Start dillo with the panels hidden?
+#fullwindow_start=NO
+
+# When filling out forms, our default behaviour is to submit on enterpress,
+# but only when there's a single text entry (to avoid incomplete submits).
+# OTOH, if you have to fill out the same form repeatedly, you may find it
+# useful to keep away from the mouse by forcing enter to submit.
+#enterpress_forces_submit=NO
+
+# A mouse's middle click over a link opens a new Tab.
+# If you prefer to open a new Window instead, set it to NO.
+#middle_click_opens_new_tab=YES
+
+# A mouse's middle click over a tab closes the Tab.
+# With mousewheel mouses, right click feels way better (set to YES).
+#right_click_closes_tab=YES
+
+# Scroll over tabs (using the mouse wheel) to switch among tabs.
+# If set to NO, the page will be scrolled instead.
+#scroll_switches_tabs=YES
+
+# Reverse the direction of tab scrolling with mouse wheel.
+#scroll_switches_tabs_reverse=NO
+
+# Mouse middle click by default drives drag-scrolling.
+# To paste an URL into the window instead of scrolling, set it to NO.
+# Note: You could always paste the URL onto the URL box clear button.
+#middle_click_drags_page=YES
+
+# Focus follows new Tabs.
+# You can hold SHIFT to temporarily revert this behaviour.
+focus_new_tab=YES
+
+# Ask before quitting Dillo with more than one window or tab open.
+show_quit_dialog=YES
+
+#-------------------------------------------------------------------------
+#                        DEBUG MESSAGES SECTION
+#-------------------------------------------------------------------------
+
+# Soon we should add the "show_debug_messages=NO" option...
+
+# Generic messages (mainly for debugging specific parts)
+# Change this to disable them.
+show_msg=NO
+
+
+#-------------------------------------------------------------------------
+#                        HTML BUG MESSAGES SECTION
+#-------------------------------------------------------------------------
+
+# Accepted by the W3C validator but "strongly discouraged" by the SPEC.
+# (Such as "TAB character inside <PRE>").
+show_extra_warnings=NO
+
+
+# -----------------------------------------------------------------------
+# dillorc ends here.
