@@ -1,0 +1,21 @@
+# Description: a challenging 2D motocross platform game, where physics play an all important role in the gameplay
+# URL: http://xmoto.org
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: bzip2 curl libxml2 lua libsdl2 sdl2_mixer sdl2_net sdl2_ttf
+
+
+name=xmoto
+version=0.6.3
+release=1
+source=(https://github.com/$name/$name/archive/refs/tags/v$version.tar.gz)
+
+build() {
+    mkdir $name-$version/build
+
+    cmake -S $name-$version -B build \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_BUILD_TYPE=Release
+
+    cmake --build build -j $JOBS
+    DESTDIR=$PKG cmake --install build
+}
