@@ -1,0 +1,23 @@
+# Description: Geany is a text editor using the GTK+ toolkit with basic features of an integrated development environment.
+# URL: http://www.geany.org/
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: gtk vte3
+
+name=geany
+version=2.1.0
+release=1
+source=(https://download.geany.org/$name-${version%.*}.tar.bz2)
+
+build () {
+    cd $name-${version%.*}
+
+    ./configure \
+        --prefix=/usr \
+        --enable-plugins \
+        --enable-vte
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -rf $PKG/usr/share/{doc,locale}
+}
