@@ -5,6 +5,7 @@ d:p5-gtk3
 d:yt-dlp
 d:libfm
 d:polybar
+d:geany
 d:celluloid
 d:linux-aspire-one
 d:netsurf
@@ -55,6 +56,9 @@ f:494c33b142da8b43190db58a90d48947:polybar/README
 f:66ef54d07b753df53058bba09b880098:polybar/Pkgfile
 f:a750c42937679f8c374597e02d2e9e24:polybar/.md5sum
 f:02585809ace82ef2df56dcc2e4cd5f81:polybar/.footprint
+f:cca9924559baa2e6d542c41938d5d8b8:geany/Pkgfile
+f:2efd0991fa55e818f9fc286b029b7da8:geany/.md5sum
+f:593d2156d8cb686622ef5cf7454a6c5a:geany/.footprint
 f:23c31b31122b7b28715f25c83f0bbf1a:celluloid/Pkgfile
 f:8a85a857a01b91ffbe90f9c74a691bff:celluloid/.md5sum
 f:f26008c08c77c2877af0b680ce306a26:celluloid/.footprint
@@ -114,8 +118,8 @@ f:b2a1093ecc0e1fb0d5cb53d96bc22138:libmenu-cache/Pkgfile
 f:8cf04e04445f9e25cdee2f810b1e23cd:libmenu-cache/.md5sum
 f:02d6677f9f5e6d56871c9b16b5477314:libmenu-cache/.footprint
 f:1c1818cccbbc515df4c50597eeab8fe0:ft2-clone/ft2-clone.desktop
-f:898e3c29d0763f6ecf65ea5d69a91ed7:ft2-clone/Pkgfile
-f:c8485b984e50406302c545c117e50429:ft2-clone/.md5sum
+f:02eb1c9de67094686b8ed98096bbb3b5:ft2-clone/Pkgfile
+f:896cfa30b3c8bc446f93f4b328c9d889:ft2-clone/.md5sum
 f:5d4e42584b1cf4bd068c316592adb1f9:ft2-clone/ft2-clone.png
 f:d615398d0311c2ed63fe7adf6fb45a8c:ft2-clone/.footprint
 f:81a26d096b9a1ec1cae3f192ad346773:scrot/Pkgfile
