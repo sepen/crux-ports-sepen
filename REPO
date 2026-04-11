@@ -13,6 +13,7 @@ d:cpufrequtils
 d:siji-ng
 d:nerd-fonts-dejavu
 d:p5-data-dump
+d:tigervnc
 d:vscode
 d:obconf
 d:dosbox
@@ -95,6 +96,9 @@ f:8a30087027e320d7b680f58a5f3d7fb0:nerd-fonts-dejavu/post-install
 f:d092db46b2a1a0732999a6534b07c813:p5-data-dump/Pkgfile
 f:6d1806d2241028bb82fb8c6fbfd63fcb:p5-data-dump/.md5sum
 f:19d8f8f5f64d5192eb911af711c9b93e:p5-data-dump/.footprint
+f:0c07c66642455a3edad2aff527d58d81:tigervnc/Pkgfile
+f:3d9fec8fd7f7c1abd2cce51d529d54be:tigervnc/.md5sum
+f:81486d556e0bff1aab26db6bd18bd117:tigervnc/.footprint
 f:4e47e2bd44c2a8c53c1e155bb942fe8a:vscode/vscode.desktop
 f:0bc3dabecc97c00e78b4ac1f2bbb8e28:vscode/Pkgfile
 f:5014d1a3d6f4e1f6564c4206388589c0:vscode/.md5sum
