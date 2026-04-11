@@ -1,0 +1,32 @@
+# Description: High performance, multi-platform VNC client and server
+# URL: https://tigervnc.org/
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: cmake fltk xorg-server
+
+name=tigervnc
+version=1.16.2
+release=1
+xserver_version=$(pkginfo -i | grep xorg-server | cut -d' ' -f2 | cut -d'-' -f1)
+
+source=(https://github.com/TigerVNC/${name}/archive/refs/tags/v${version}.tar.gz
+        https://www.x.org/releases/individual/xserver/xorg-server-${xserver_version}.tar.xz)
+
+build() {
+    cd $name-$version
+
+    cp -r $SRC/xorg-server-${xserver_version}/* unix/xserver/
+
+    cmake \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBEXECDIR=/usr/lib \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DBUILD_VIEWER=yes \
+        -DENABLE_NLS=no \
+        -DENABLE_SELINUX=no \
+        -DENABLE_SYSTEMD=no
+
+    make
+    make DESTDIR=$PKG install
+
+    rm -rf $PKG/usr/share/doc $PKG/usr/lib/systemd
+}
