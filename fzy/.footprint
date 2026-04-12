@@ -1,8 +1,7 @@
-drwxr-xr-x	sepen/sepen	usr/
-drwxr-xr-x	sepen/sepen	usr/local/
-drwxr-xr-x	sepen/sepen	usr/local/bin/
--rwxr-xr-x	sepen/sepen	usr/local/bin/fzy
-drwxr-xr-x	sepen/sepen	usr/local/share/
-drwxr-xr-x	sepen/sepen	usr/local/share/man/
-drwxr-xr-x	sepen/sepen	usr/local/share/man/man1/
--rw-r--r--	sepen/sepen	usr/local/share/man/man1/fzy.1.gz
+drwxr-xr-x	root/root	usr/
+drwxr-xr-x	root/root	usr/bin/
+-rwxr-xr-x	root/root	usr/bin/fzy
+drwxr-xr-x	root/root	usr/share/
+drwxr-xr-x	root/root	usr/share/man/
+drwxr-xr-x	root/root	usr/share/man/man1/
+-rw-r--r--	root/root	usr/share/man/man1/fzy.1.gz
