@@ -6,7 +6,7 @@
 name=minivmac
 version=37
 release=1
-source=(https://github.com/$minimac/$name/archive/refs/heads/master.zip)
+source=(https://github.com/$name/$name/archive/refs/heads/master.zip)
 
 build() {
     cd $name-master
