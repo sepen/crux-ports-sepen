@@ -1,0 +1,45 @@
+# Description: Mini vMac is a miniature Macintosh 68K emulator
+# URL: https://github.com/minivmac/minivmac
+# Maintainer: Jose V Beneyto, sepen at crux-arm dot nu
+# Depends on: libsdl3
+
+name=minivmac
+version=37
+release=1
+source=(https://github.com/$minimac/$name/archive/refs/heads/master.zip)
+
+build() {
+    cd $name-master
+
+    # we need to build the setup tool first
+    gcc -o setup_t setup/tool.c
+
+    # get target codename
+    target=lx64
+    case "$(uname -m)" in
+        i686) target="lx86" ;;
+        arm64|aarch64) target="la64" ;;
+        armv7*|armhf) target="larm" ;;
+        ppc64) target="lp64" ;;
+        ppc) target="lppc" ;;
+    esac
+
+    # run setup tool to generate makefile generator
+    ./setup_t \
+        -homepage "https://gryphel.com/c/minivmac/" \
+        -n "vMac Classic" \
+        -t $target \
+        -m Classic \
+        -hres 640 -vres 480 \
+        -depth 0 -fullscreen 0 \
+        -magnify 0 \
+        -sound 1 \
+        -mem 4M \
+        > setup.sh
+
+    # generate makefile and build
+    bash -x ./setup.sh
+    make
+
+    install -D -m 0755 $name $PKG/usr/bin/$name
+}
