@@ -110,8 +110,8 @@ f:5014d1a3d6f4e1f6564c4206388589c0:vscode/.md5sum
 f:aef6d5c8592063a3a8f5289b53e8e085:vscode/.footprint
 f:04c4c453a76effa2d794fd6037fb1412:vscode/vscode.png
 f:9edf349b1b5083283a16bd7d3297b984:minivmac/README
-f:ebda1c40a3bb89763808722fc5305c01:minivmac/Pkgfile
-f:903b1754957f699b64b1f7051f7073ab:minivmac/.md5sum
+f:87fa09a365c738ea4b3b679184f594fc:minivmac/Pkgfile
+f:2d5825aad333696e0bc8976c3dfa8101:minivmac/.md5sum
 f:befe6c3a9d6db6cb7ce4d3e4f314bfdb:minivmac/.footprint
 f:ac45e76cd000fcbcf73992303f0a1fd0:obconf/fix-gcc15.patch
 f:6be2148229280c3ba961f7aad928bc27:obconf/stop-using-libglade.patch
