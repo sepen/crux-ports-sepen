@@ -16,6 +16,7 @@ d:p5-data-dump
 d:tigervnc
 d:fzy
 d:vscode
+d:minivmac
 d:obconf
 d:dosbox
 d:cpufetch
@@ -108,6 +109,10 @@ f:0bc3dabecc97c00e78b4ac1f2bbb8e28:vscode/Pkgfile
 f:5014d1a3d6f4e1f6564c4206388589c0:vscode/.md5sum
 f:aef6d5c8592063a3a8f5289b53e8e085:vscode/.footprint
 f:04c4c453a76effa2d794fd6037fb1412:vscode/vscode.png
+f:9edf349b1b5083283a16bd7d3297b984:minivmac/README
+f:ebda1c40a3bb89763808722fc5305c01:minivmac/Pkgfile
+f:903b1754957f699b64b1f7051f7073ab:minivmac/.md5sum
+f:befe6c3a9d6db6cb7ce4d3e4f314bfdb:minivmac/.footprint
 f:ac45e76cd000fcbcf73992303f0a1fd0:obconf/fix-gcc15.patch
 f:6be2148229280c3ba961f7aad928bc27:obconf/stop-using-libglade.patch
 f:fb2c56d8e62bfbadd6ed6a735b0e10c2:obconf/switch-to-gtk3.patch
@@ -126,8 +131,8 @@ f:b2a1093ecc0e1fb0d5cb53d96bc22138:libmenu-cache/Pkgfile
 f:8cf04e04445f9e25cdee2f810b1e23cd:libmenu-cache/.md5sum
 f:02d6677f9f5e6d56871c9b16b5477314:libmenu-cache/.footprint
 f:1c1818cccbbc515df4c50597eeab8fe0:ft2-clone/ft2-clone.desktop
-f:02eb1c9de67094686b8ed98096bbb3b5:ft2-clone/Pkgfile
-f:896cfa30b3c8bc446f93f4b328c9d889:ft2-clone/.md5sum
+f:86cdb4805273c8556e30bbd67a2ed31a:ft2-clone/Pkgfile
+f:ea669beadf679bf17e899831ca9863f6:ft2-clone/.md5sum
 f:5d4e42584b1cf4bd068c316592adb1f9:ft2-clone/ft2-clone.png
 f:d615398d0311c2ed63fe7adf6fb45a8c:ft2-clone/.footprint
 f:81a26d096b9a1ec1cae3f192ad346773:scrot/Pkgfile
