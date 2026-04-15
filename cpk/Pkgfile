@@ -3,16 +3,17 @@
 # Depends on: curl libarchive
 
 name=cpk
-version=0.2
-release=2
-source=(https://github.com/sepen/cpk/archive/refs/heads/main.zip)
+version=0.3
+release=1
+source=(https://github.com/sepen/cpk/releases/download/$version/$name-$version.tar.gz)
 
 build() {
-  cd $name-main
+  cd $name-$version
 
   ./configure --prefix=/usr
-  make
 
+  make
   make DESTDIR=$PKG install
+
   install -d -m 0755 $PKG/var/lib/cpk
 }
