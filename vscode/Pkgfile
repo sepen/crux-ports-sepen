@@ -4,7 +4,7 @@
 # Depends on: alsa-lib gtk3 nss xorg-libxcomposite xorg-libxcursor xorg-libxinerama xorg-libxscrnsaver libxkbcommon
 
 name=vscode
-version=1.105.1
+version=1.116.0
 release=1
 source=(https://update.code.visualstudio.com/$version/linux-x64/stable \
   $name.desktop $name.png)
