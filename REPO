@@ -30,6 +30,7 @@ d:xarchiver
 d:pcmanfm
 d:p5-cairo-gobject
 d:libfm-extra
+d:plib
 d:fltk
 d:p5-linux-desktopfiles
 d:glmark2
@@ -164,6 +165,9 @@ f:32f8ff1d4a6e556d69293030e1aee5e8:libfm-extra/disable-gtk-doc.diff
 f:44c44b29f6434a412dfb89c3d2fa619e:libfm-extra/Pkgfile
 f:233aa22c7580c9190dd3b0a4592ac888:libfm-extra/.md5sum
 f:56ceb4b652d0241d8159f891da5dc9e5:libfm-extra/.footprint
+f:7831fc9d162c5d468e99117eb8195266:plib/Pkgfile
+f:b975b4398b160e54efa48ee1c5caf6b6:plib/.md5sum
+f:52fc4d8406e006c42f2d30f97443c75e:plib/.footprint
 f:cff06680cd420e86e407334930310899:fltk/Pkgfile
 f:a0ec7129dafeee948bcda5603e62b8f9:fltk/.md5sum
 f:656bc900b6229d6313f0182763e59797:fltk/.footprint
