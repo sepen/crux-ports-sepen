@@ -31,6 +31,7 @@ d:pcmanfm
 d:p5-cairo-gobject
 d:libfm-extra
 d:plib
+d:freealut
 d:fltk
 d:p5-linux-desktopfiles
 d:glmark2
@@ -168,6 +169,9 @@ f:56ceb4b652d0241d8159f891da5dc9e5:libfm-extra/.footprint
 f:7831fc9d162c5d468e99117eb8195266:plib/Pkgfile
 f:b975b4398b160e54efa48ee1c5caf6b6:plib/.md5sum
 f:52fc4d8406e006c42f2d30f97443c75e:plib/.footprint
+f:26564b973b0e16adfe3df368fe056400:freealut/Pkgfile
+f:16c29e85c4b8fa7e733f5e97fb03160a:freealut/.md5sum
+f:99f4d887a069a1ae4c6dec6d4f5b0bab:freealut/.footprint
 f:cff06680cd420e86e407334930310899:fltk/Pkgfile
 f:a0ec7129dafeee948bcda5603e62b8f9:fltk/.md5sum
 f:656bc900b6229d6313f0182763e59797:fltk/.footprint
