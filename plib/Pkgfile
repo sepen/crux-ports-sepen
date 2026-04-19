@@ -1,0 +1,19 @@
+# Description: Set of libraries to write games and interactive applications
+# URL: https://plib.sourceforge.net/
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: mesa xorg-libxi xorg-libxmu
+
+name=plib
+version=1.8.5
+release=1
+source=(https://plib.sourceforge.net/dist/$name-$version.tar.gz)
+
+build() {
+   cd $name-$version
+
+   ./configure \
+       --prefix=/usr
+
+   make
+   make DESTDIR=$PKG install 
+}
