@@ -1,7 +1,7 @@
 # Description: A fast pipe/static menu generator for Openbox with support for icons
 # URL: https://github.com/trizen/obmenu-generator
 # Maintainer: Jose Beneyto, sepen at crux dot nu
-# Depends on: openbox p5-linux-desktopfiles p5-data-dump
+# Depends on: openbox p5-gtk3 p5-linux-desktopfiles p5-data-dump
 
 name=obmenu-generator
 version=0.90

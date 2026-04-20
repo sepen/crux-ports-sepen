@@ -1,0 +1,42 @@
+.TH MIRAGE 1 "January 15, 2007"
+.SH NAME
+mirage \- A fast and simple GTK+ Image Viewer
+.SH SYNOPSIS
+.B mirage
+[\fIOPTION\fR]... [\fIFILES\fR|\fIFOLDERS\fR]...
+.SH DESCRIPTION
+Mirage is a fast and simple GTK+ Image Viewer.
+.SH OPTIONS
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Show this help and exit
+.TP
+\fB\-v\fR, \fB\-\-version\fR
+Show version information and exit
+.TP
+\fB\-V\fR, \fB\-\-verbose\fR
+Show more detailed information
+.TP
+\fB\-R\fR, \fB\-\-recursive\fR
+Recursively include all images found
+in subdirectories of FOLDERS
+.TP
+\fB\-s\fR, \fB\-\-slideshow\fR
+Start in slideshow mode
+.TP
+\fB\-f\fR, \fB\-\-fullscreen\fR
+Start in fullscreen mode
+.TP
+\fB\-o\fR, \fB\-\-onload 'cmd'\fR
+Execute 'cmd' when an image is loaded
+(uses same syntax as custom actions, 
+i.e. mirage \-o \(aqecho file is %F\(aq)
+.SH "SEE ALSO"
+.PP
+Website: http://mirageiv.berlios.de
+.SH AUTHOR
+Mirage was written by Scott Horowitz <stonecrest@gmail.com>.
+
+.PP
+This manual page was written by Mike Massonnet <mmassonnet@gmail.com>,
+for the Debian project (but may be used by others).

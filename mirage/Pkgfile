@@ -1,31 +1,45 @@
-# Description: A fast and simple image viewer
+# Description: A fast and simple image viewer
 # URL: https://mirageiv.sourceforge.net/
 # Maintainer: Jose Beneyto, sepen at crux dot nu
-# Depends on: gtk2 python pygtk
+# Depends on: python3-gobject gtk3 gexiv2
 
 name=mirage
-version=0.9.5.2
-release=2
-source=(https://downloads.sourceforge.net/project/mirageiv/mirage-$version.tar.bz2)
+version=0.11.2
+release=1
+source=(https://gitlab.com/thomasross/$name/-/archive/$version/$name-$version.tar.bz2
+	$name.patch $name.1)
 
 build() {
-  rm $SRC/$name-$version/{CHANGELOG,COPYING,README,TODO,TRANSLATORS,setup.py,po/POTFILES.in}
+    cd $name-$version
 
- # build additional features
-  PYTHON_INC_PATH=$(python2 -c "import sysconfig; print(sysconfig.get_paths()['include'])")
-  cd $SRC/$name-$version
-  gcc -fPIC -shared -I$PYTHON_INC_PATH -o imgfuncs.so imgfuncs.c
-  gcc -fPIC -shared -I$PYTHON_INC_PATH -o xmouse.so xmouse.c -lX11
-  rm $SRC/$name-$version/{imgfuncs,xmouse}.c
+    patch -p1 -i $SRC/$name.patch
+    cp $SRC/$name.1 .
 
-  install -d -m 0755 $PKG/usr/share
-  mv $SRC/$name-$version $PKG/usr/share/$name
-  chmod 0755 $PKG/usr/share/$name/$name
+    for po_file in po/*.po; do
+	echo "po_file: $po_file"
+        local po_file_lang="$(basename "$po_file" .po)"
+        if [[ "$po_file_lang" != "messages" ]]; then
+            local mo_file_dir="mo/${po_file_lang}"
+            mkdir -p "$mo_file_dir"
+            local mo_file="${mo_file_dir}/mirage.mo"
+            echo "generating ${mo_file}"
+            msgfmt "$po_file" -o "$mo_file"
+        fi
+    done
 
-  install -d -m 0755 $PKG/usr/bin
-  ln -sf /usr/share/$name/$name $PKG/usr/bin/$name
+    glib-compile-resources \
+        --sourcedir="resources" \
+	--target="io.thomasross.mirage.gresource" \
+        resources/$name.gresource.xml
 
-  install -d -m 0755 $PKG/usr/share/{applications,pixmaps}
-  ln -sf /usr/share/$name/$name.desktop $PKG/usr/share/applications/$name.desktop
-  ln -sf /usr/share/$name/$name.png $PKG/usr/share/pixmaps/$name.png
+    python3 setup.py build
+    python3 setup.py install --root=$PKG --optimize=1 --skip-build
+
+    cp $name.{png,svg,ico} $PKG/usr/share/$name
+    rm -f $PKG/usr/share/$name/{CHANGELOG,COPYING,README,TODO,TRANSLATORS}
+    rm -rf $PKG/usr/share/locale
+
+    install -d -m 0755 $PKG/usr/share/{applications,pixmaps}
+    ln -sf /usr/share/$name/$name.desktop $PKG/usr/share/applications/$name.desktop
+    ln -sf /usr/share/$name/$name.png $PKG/usr/share/pixmaps/$name.png
 }
