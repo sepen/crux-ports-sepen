@@ -40,9 +40,11 @@ f:a61c254783b187231b8c794f716de7a9:terminator/README
 f:145ef119ff6fde58ab82f7791baa2cf2:terminator/Pkgfile
 f:c0a13e2425d3250787cc27b6b5fa8480:terminator/.md5sum
 f:85ba1afd2f515362b490a6091ee48bcf:terminator/.footprint
-f:5a6f1b32adcb427a6932803bfc5a1457:mirage/Pkgfile
-f:d2bd3f75bc2a385be7c3700d6943a09b:mirage/.md5sum
-f:8c7f490803151d325bbb4aa1e66ec2a9:mirage/.footprint
+f:b55df7e4e749667c37951bc818990234:mirage/mirage.1
+f:ff12f78fe7dafb48b48b76abdf3794f9:mirage/mirage.patch
+f:91e63bb9b4f0ada30d1e2530c9f57245:mirage/Pkgfile
+f:ee4344186a4386791928d56379871bfe:mirage/.md5sum
+f:55d77144d4e5d5d0b48079c29b2a1ddb:mirage/.footprint
 f:0f6d82b7c8ffe2ad4a7a2eb0e0b34e5e:dillo/dillorc
 f:d6f92b1d116dd329dc8de588f6df79d7:dillo/Pkgfile
 f:fbe183514c35d9a34b3bd87f8531065b:dillo/.md5sum
@@ -144,7 +146,7 @@ f:c73389f6d618d4d1c71256b254ccea4e:cpk/Pkgfile
 f:2d04c8142ce0defef4110d9d08004cb8:cpk/.md5sum
 f:67b8eb8b649909e0a49df73f39ca23b3:cpk/.footprint
 f:cd196573ae921ffc6c51ccc7b0c50d2f:obmenu-generator/README
-f:899ecc5d0ccaa8e3d218092936bc2b8a:obmenu-generator/Pkgfile
+f:3cc2c18891e05beb931125d0455c70d8:obmenu-generator/Pkgfile
 f:8ba5a74357b9958a05127646523bdee9:obmenu-generator/.md5sum
 f:30b3106105bfbeb74de021c04e81cfbe:obmenu-generator/.footprint
 f:8d5e590fa813fb37f920b6cd650c5876:xterm-sixel/Pkgfile
