@@ -5,12 +5,13 @@
 
 name=plib
 version=1.8.5
-release=1
+release=2
 source=(https://plib.sourceforge.net/dist/$name-$version.tar.gz)
 
 build() {
    cd $name-$version
 
+   export CXXFLAGS+=" -fPIC"
    ./configure \
        --prefix=/usr
 
