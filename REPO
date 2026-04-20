@@ -15,6 +15,7 @@ d:nerd-fonts-dejavu
 d:p5-data-dump
 d:tigervnc
 d:fzy
+d:torcs
 d:vscode
 d:minivmac
 d:obconf
@@ -108,6 +109,9 @@ f:81486d556e0bff1aab26db6bd18bd117:tigervnc/.footprint
 f:82b6e7ca1ca598941f536d189872a12b:fzy/Pkgfile
 f:7bd132b56531040bf176f58a3e7643ff:fzy/.md5sum
 f:02ede8bd73f6bd347fbf3a095609dac7:fzy/.footprint
+f:d877f06d2e661144ac4dc773f4eaba2d:torcs/Pkgfile
+f:c982c2cd2557f138f85e8952e38ec19a:torcs/.md5sum
+f:912a58101b2776b68fb46f903b35b800:torcs/.footprint
 f:4e47e2bd44c2a8c53c1e155bb942fe8a:vscode/vscode.desktop
 f:5b1d206a7012fa58d889fc8664fe20ab:vscode/Pkgfile
 f:a370f707fdd91e96c956e806f91169b4:vscode/.md5sum
