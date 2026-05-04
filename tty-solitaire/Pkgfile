@@ -1,0 +1,17 @@
+# Description: Play solitaire in your terminal!
+# URL: https://github.com/mpereira/tty-solitaire
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: ncurses
+
+name=tty-solitaire
+version=1.4.1
+release=1
+
+source=(https://github.com/mpereira/tty-solitaire/archive/refs/tags/v${version}.tar.gz)
+
+build() {
+    cd ${name}-${version}
+
+    make
+    make DESTDIR=$PKG PREFIX=/usr install
+}

@@ -1,6 +1,6 @@
 # Description: SDL-based DOS emulator for classic games
 # URL: http://dosbox.sourceforge.net
-# Maintainer: Jose Beneyto, sepen at crux dot nu
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
 # Depends on: libsdl glu
 
 name=dosbox
