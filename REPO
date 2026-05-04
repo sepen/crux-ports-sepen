@@ -4,6 +4,7 @@ d:dillo
 d:p5-gtk3
 d:yt-dlp
 d:libfm
+d:dosbox-x
 d:polybar
 d:geany
 d:celluloid
@@ -13,6 +14,7 @@ d:cpufrequtils
 d:siji-ng
 d:nerd-fonts-dejavu
 d:p5-data-dump
+d:tty-solitaire
 d:tigervnc
 d:fzy
 d:torcs
@@ -60,6 +62,9 @@ f:32f8ff1d4a6e556d69293030e1aee5e8:libfm/disable-gtk-doc.diff
 f:1f77fe54bcf05ca786c7c39730f4b156:libfm/Pkgfile
 f:233aa22c7580c9190dd3b0a4592ac888:libfm/.md5sum
 f:33308325bd207f050f35e822df729f7a:libfm/.footprint
+f:b686efd49fa1c89363855dda86d450f8:dosbox-x/Pkgfile
+f:89313a25bb078a0dea369af8a8e9018c:dosbox-x/.md5sum
+f:6ac7cc406ab9046d49bf3826ff37509e:dosbox-x/.footprint
 f:494c33b142da8b43190db58a90d48947:polybar/README
 f:66ef54d07b753df53058bba09b880098:polybar/Pkgfile
 f:a750c42937679f8c374597e02d2e9e24:polybar/.md5sum
@@ -103,6 +108,8 @@ f:8a30087027e320d7b680f58a5f3d7fb0:nerd-fonts-dejavu/post-install
 f:d092db46b2a1a0732999a6534b07c813:p5-data-dump/Pkgfile
 f:6d1806d2241028bb82fb8c6fbfd63fcb:p5-data-dump/.md5sum
 f:19d8f8f5f64d5192eb911af711c9b93e:p5-data-dump/.footprint
+f:80648c8ac78b50659034b9123ed8406f:tty-solitaire/Pkgfile
+f:e86f2b66a897c7a7a890604ed1f4f969:tty-solitaire/.md5sum
 f:0c07c66642455a3edad2aff527d58d81:tigervnc/Pkgfile
 f:3d9fec8fd7f7c1abd2cce51d529d54be:tigervnc/.md5sum
 f:3d7fa5d82591fb5b860ee749a5092aac:tigervnc/.footprint
@@ -127,7 +134,7 @@ f:fb2c56d8e62bfbadd6ed6a735b0e10c2:obconf/switch-to-gtk3.patch
 f:0d749d56a4e25f6001a4dfa84fa30927:obconf/Pkgfile
 f:5510108b7fa08847ee5c0bb79f944a41:obconf/.md5sum
 f:ffc244ba59cc021fb5b06cd3d2ed4bfc:obconf/.footprint
-f:9b07ff572a134a400729c889e1a80ef2:dosbox/Pkgfile
+f:82879700ef443048d30ec39df37e44d6:dosbox/Pkgfile
 f:9aa7f4ddb684aef444829b71eafa6688:dosbox/.md5sum
 f:6ac7cc406ab9046d49bf3826ff37509e:dosbox/.footprint
 f:eddc27128b48850d087ee7bab92c2b21:cpufetch/Pkgfile
