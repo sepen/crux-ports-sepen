@@ -1,0 +1,18 @@
+# Description: x86 emulator with builtin DOS with patches and more features
+# URL: http://dosbox-x.com
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: libsdl glu
+
+name=dosbox-x
+version=2026.05.02
+release=1
+source=(https://github.com/joncampbell123/$name/archive/$name-v${version}.tar.gz)
+
+build() {
+  cd $name-$name-v${version}
+
+  sed -i -e 's/-j3/-j$(nproc)/g' build
+  ./build
+
+  make DESTDIR=$PKG install
+}
