@@ -1,0 +1,52 @@
+# Description: clang compiler
+# URL: https://clang.llvm.org/
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: llvm-32
+
+name=clang-32
+version=22.1.7
+release=1
+source=(https://github.com/llvm/llvm-project/releases/download/llvmorg-$version/llvm-project-$version.src.tar.xz)
+
+build() {
+    llvm_version=$(prt-get current llvm-32)
+    if [ ! "$llvm_version" == "$version-$release" ]; then
+        printf '\e[31m%s\e[m\n' "llvm-32 out-of-sync error!
+Your current llvm-32 version is $llvm_version, while this Pkgfile currently
+provides $version-$release.
+
+The build may not fail but produce problems later on. To save your time the
+build will exit here. Please update llvm-32 first."
+        exit 1
+    fi
+
+    prt-get isinst ccache && PKGMK_CLANG+=' -D LLVM_CCACHE_BUILD=ON'
+
+    mv llvm-project-$version.src/clang-tools-extra llvm-project-$version.src/clang/tools/extra
+
+    cmake -S llvm-project-$version.src/clang -B build -G Ninja $PKGMK_CLANG \
+        -D CMAKE_INSTALL_PREFIX=/usr \
+	-D CMAKE_INSTALL_LIBDIR=lib32 \
+        -D CMAKE_INSTALL_LIBEXECDIR=lib32/clang \
+        -D CMAKE_BUILD_TYPE=Release \
+	-D CMAKE_SKIP_RPATH=ON \
+        -D CMAKE_C_FLAGS_RELEASE="-O2 -march=x86-64 -pipe -m32" \
+        -D CMAKE_CXX_FLAGS_RELEASE="-O2 -march=x86-64 -pipe -m32" \
+	-D CLANG_LINK_CLANG_DYLIB=ON \
+	-D LLVM_CONFIG=llvm-config-32 \
+	-D LLVM_LIBDIR_SUFFIX=32 \
+	-D LLVM_DIR=/usr/lib32/cmake/llvm \
+	-D LLVM_LINK_LLVM_DYLIB=ON \
+	-D LLVM_MAIN_SRC_DIR="$SRC/llvm-project-$version.src/llvm" \
+        -D LLVM_PARALLEL_COMPILE_JOBS="${JOBS:-1}" \
+        -D LLVM_INCLUDE_TESTS=OFF \
+	-D LLVM_INCLUDE_DOCS=OFF \
+        -D ZLIB_LIBRARY=/usr/lib32/libz.so \
+	-D ZLIB_INCLUDE_DIR=/usr/include \
+	-D zstd_LIBRARY=/usr/lib32/libzstd.so \
+        -Wno-dev
+    cmake --build build
+    DESTDIR=$PKG cmake --install build
+
+    rm -r $PKG/usr/{lib,bin,share,include}
+}
