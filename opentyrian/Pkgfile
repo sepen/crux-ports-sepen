@@ -1,0 +1,18 @@
+# Description: Open source port of the DOS game Tyrian (1995)
+# URL: https://github.com/akosela/opentyrian
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: sdl2_net
+
+name=opentyrian
+version=2.1.20221123
+release=1
+source=(https://github.com/opentyrian/opentyrian/archive/refs/tags/v$version.tar.gz)
+
+build() {
+  cd $name-$version
+
+  make prefix=/usr
+  make prefix=/usr DESTDIR=$PKG install
+
+  rm -rf $PKG/usr/share/doc
+}
