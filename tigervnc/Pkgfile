@@ -5,16 +5,28 @@
 
 name=tigervnc
 version=1.16.2
-release=1
-xserver_version=$(pkginfo -i | grep xorg-server | cut -d' ' -f2 | cut -d'-' -f1)
+release=2
 
-source=(https://github.com/TigerVNC/${name}/archive/refs/tags/v${version}.tar.gz
-        https://www.x.org/releases/individual/xserver/xorg-server-${xserver_version}.tar.xz)
+source=(https://github.com/TigerVNC/${name}/archive/refs/tags/v${version}.tar.gz)
 
 build() {
     cd $name-$version
 
-    cp -r $SRC/xorg-server-${xserver_version}/* unix/xserver/
+    xserver_version=$(pkginfo -i | grep xorg-server | cut -d' ' -f2 | cut -d'-' -f1)
+    curl -sS -L -k \
+      https://www.x.org/releases/individual/xserver/xorg-server-${xserver_version}.tar.xz \
+      | tar xJ -C unix/xserver --strip-components=1
+
+    # --- nettle >= 4.0 compatibility ---
+    # Enlarge the truncated fingerprint buffer: sha1_digest now writes the full
+    # 20-byte digest (only the first 8 bytes are used, and they are unchanged)
+    sed -i 's/uint8_t f\[8\];/uint8_t f[20];/' common/rfb/CSecurityRSAAES.cxx
+    # md5/sha1/sha256_digest dropped the length argument (output unchanged for
+    # these callers: they keep only the leading bytes, which are identical)
+    grep -rlZ --include='*.cxx' -E '(md5|sha1|sha256)_digest\(' common | \
+      xargs -0 sed -i -E 's/\b(md5|sha1|sha256)_digest\(([^,]+), [^,]+, /\1_digest(\2, /g'
+    # EAX_DIGEST macro also dropped its length argument (EAX_SET_NONCE keeps it)
+    sed -i '/EAX_DIGEST/ s/, 16,/,/' common/rdr/AESInStream.cxx common/rdr/AESOutStream.cxx
 
     cmake \
         -DCMAKE_INSTALL_PREFIX=/usr \
