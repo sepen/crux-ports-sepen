@@ -29,6 +29,7 @@ d:cpufrequtils
 d:freealut
 d:apulse
 d:pcmanfm
+d:opentyrian
 d:p5-cairo-gobject
 d:tigervnc
 d:mirage
@@ -162,6 +163,9 @@ f:fe30463a1c7508e7d38fa3e8a12dc964:pcmanfm/.md5sum
 f:cb6c7a82e3e6ee927bccb4bbb25828a8:pcmanfm/Pkgfile
 f:5876e1eaac6741b8c3da51762c013388:pcmanfm/README
 f:6e88732c3fa18b7347973e4393da6ab1:pcmanfm/.footprint
+f:4d108623c3667b336a44741d3f74fccf:opentyrian/.md5sum
+f:c81de94ab525e894b023bec1abae877b:opentyrian/Pkgfile
+f:91c346727573a6c13d676bebc5dff282:opentyrian/.footprint
 f:037097eb6ae3d89b9db426a5382f9664:p5-cairo-gobject/.md5sum
 f:ab159b5ddf04602604d058a5829e35d9:p5-cairo-gobject/Pkgfile
 f:2a6fa08548396309142a84816f8fde75:p5-cairo-gobject/.footprint
