@@ -6,7 +6,8 @@
 name=opentyrian
 version=2.1.20221123
 release=1
-source=(https://github.com/opentyrian/opentyrian/archive/refs/tags/v$version.tar.gz)
+source=(https://github.com/opentyrian/opentyrian/archive/refs/tags/v$version.tar.gz
+        https://camanis.net/tyrian/tyrian21.zip)
 
 build() {
   cd $name-$version
@@ -15,4 +16,17 @@ build() {
   make prefix=/usr DESTDIR=$PKG install
 
   rm -rf $PKG/usr/share/doc
+
+  install -d $PKG/usr/share/$name
+  rm $SRC/tyrian21/*.exe
+  mv $SRC/tyrian21 $PKG/usr/share/$name/data
+
+  mv $PKG/usr/bin/$name $PKG/usr/share/$name/$name
+  cat > $PKG/usr/bin/$name << __EOF__
+#!/bin/sh
+
+cd /usr/share/$name
+exec ./$name \$@
+__EOF__
+  chmod +x $PKG/usr/bin/$name
 }
