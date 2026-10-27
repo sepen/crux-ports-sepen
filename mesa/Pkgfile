@@ -1,0 +1,65 @@
+# Description: Mesa 3D Graphics Library
+# URL: https://www.mesa3d.org/
+# Maintainer: Jose Beneyto, sepen at crux-arm dot nu
+# Depends on: elfutils libdrm libglvnd llvm python3-mako python3-pyyaml xorg-libxdamage xorg-libxrandr xorg-libxshmfence xorg-libxvmc xorg-libxxf86vm
+# Optional: cbindgen directx-headers glslang mesa-libclc libdisplay-info libunwind libva lm_sensors lua python3-ply rust-bindgen spirv-llvm-translator vulkan-loader wayland-protocols
+
+name=mesa
+version=26.2.5
+release=1
+source=(https://archive.mesa3d.org/$name-$version.tar.xz)
+
+build() {
+    prt-get isinst directx-headers && PKGMK_MESA_GALLIUM+='d3d12,'
+    prt-get isinst mesa-libclc && PKGMK_MESA_GALLIUM+='crocus,iris,'
+    prt-get isinst mesa-libclc rust-bindgen && PKGMK_MESA+=' -D gallium-rusticl=true'
+    prt-get isinst libdisplay-info && PKGMK_MESA+=' -D display-info=enabled'
+    prt-get isinst libunwind && PKGMK_MESA+=' -D libunwind=enabled'
+    prt-get isinst libva && PKGMK_MESA+=' -D gallium-va=enabled' || PKGMK_MESA+=' -D gallium-va=disabled'
+    prt-get isinst lm_sensors && PKGMK_MESA+=' -D lmsensors=enabled'
+    if prt-get isinst vulkan-loader; then
+        prt-get isinst cbindgen rust-bindgen spirv-llvm-translator && PKGMK_MESA_VULKAN_DRIVERS+='nouveau,'
+        prt-get isinst directx-headers && PKGMK_MESA_VULKAN_DRIVERS+='microsoft-experimental,'
+        prt-get isinst glslang && PKGMK_MESA_VULKAN_DRIVERS+='amd,' PKGMK_MESA_VULKAN_LAYERS+='overlay,'
+        prt-get isinst glslang mesa-libclc python3-ply lua && PKGMK_MESA_VULKAN_DRIVERS+='intel,' PKGMK_MESA_VULKAN_LAYERS+='intel-nullhw,'
+        prt-get isinst mesa-libclc && PKGMK_MESA_VULKAN_DRIVERS+='intel_hasvk,'
+        VULKAN_DRIVERS=${PKGMK_MESA_VULKAN_DRIVERS#,}virtio
+        PKGMK_MESA_GALLIUM+='zink,'
+    else
+        VULKAN_DRIVERS=""
+        VULKAN_LAYERS=""
+    fi
+    prt-get isinst wayland-protocols && PKGMK_MESA_PLATFORMS+='wayland'
+    ## for future references
+    #prt-get isinst xorg-libxdamage xorg-libxrandr xorg-libxshmfence xorg-libxvmc xorg-libxxf86vm && PKGMK_MESA_PLATFORMS+=',x11'
+    PKGMK_MESA_PLATFORMS+=',x11'
+
+    printf '%s' "$version-$release" > $name-$version/VERSION
+
+    meson setup build $name-$version $PKGMK_MESA \
+        --prefix=/usr \
+        --sysconfdir=/etc \
+        --buildtype=plain \
+        -D b_lto=false \
+        -D b_pie=true \
+        -D egl=enabled \
+        -D llvm=enabled \
+        -D shared-llvm=enabled \
+        -D gbm=enabled \
+        -D gles1=disabled \
+        -D gles2=enabled \
+        -D glx=dri \
+        -D gallium-drivers=${PKGMK_MESA_GALLIUM}nouveau,r300,r600,radeonsi,svga,virgl,i915,iris \
+        -D platforms=${PKGMK_MESA_PLATFORMS#,} \
+        -D video-codecs=all \
+        -D glvnd=enabled \
+        -D vulkan-drivers=$VULKAN_DRIVERS \
+        -D vulkan-layers=$VULKAN_LAYERS \
+        -D intel-rt=enabled
+
+    meson compile -C build -j ${JOBS:-1}
+    DESTDIR=$PKG meson install -C build
+
+    # indirect rendering symlink
+    ln -s libGLX_mesa.so.0 $PKG/usr/lib/libGLX_indirect.so.0
+}

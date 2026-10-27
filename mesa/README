@@ -1,0 +1,31 @@
+NOTE for mesa (Iris Driver)
+
+    If your system has a modern Intel GPU (any ASUS Zenbook, MacBook, or recent 
+    laptop), you have i965-class hardware, not i915.
+    Compiling only the i915 driver will result in AIGLX errors when X tries to
+    load the graphics renderer.
+
+    Read xorg/mesa/README.md for additional notes.
+
+IMPORTANT
+
+    You also need contrib/libva-intel-driver installed.
+    This package provides the i965_drv_video.so video acceleration driver, which
+    works alongside the Mesa i965 DRI driver for complete GPU support.
+
+
+    Also you need
+
+sudo mkdir -p /etc/X11/xorg.conf.d
+sudo tee /etc/X11/xorg.conf.d/20-intel.conf > /dev/null << 'EOF'
+Section "Device"
+    Identifier "Intel Graphics"
+    Driver "modesetting"
+    Option "AccelMethod" "glamor"
+    Option "DRI" "3"
+EndSection
+
+Section "Module"
+    Load "glx"
+EndSection
+EOF
